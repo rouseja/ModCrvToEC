@@ -5,7 +5,7 @@ This repository contains Magma code (by Jacob Mayle and Jeremy Rouse) for comput
 1. If necessary, update [Magma](https://magma.maths.usyd.edu.au/magma/). (We believe that V2.28-21 or newer is needed.)
 2. Download David Zywina's [Modular](https://github.com/davidzywina/Modular) repository.
 3. Move the folders `main` and `earlier_code` to Magma's directory folder (use the <code>GetCurrentDirectory()</code> command in Magma to see the current directory).
-4. Download the file [ModCrvToEC.m](https://github.com/rouseja/ModCrvToEC/ModCrvToEC.m) from this repository and move it to Magma's directory folder.
+4. Download the file [ModCrvToEC.m](https://github.com/rouseja/ModCrvToEC/blob/main/ModCrvToEC.m) from this repository and move it to Magma's directory folder.
 5. Open Magma and run the commands <code>AttachSpec("Modular.spec");</code> and <code>Attach("ModCrvToEC.m");</code>. 
 
 ## Primary functions
@@ -55,7 +55,7 @@ RatPtsFromMaps(N, Map);
 ```
 determines that there are precisely 4 rational points on the modular curve $X_{G}$ and lists them.
 
-For additional examples, look at the file [Examples.m](https://github.com/rouseja/ModCrvToEC/Examples.m) in this repo.
+For additional examples, look at the file [Examples.m](https://github.com/rouseja/ModCrvToEC/blob/main/Examples.m) in this repo.
 
 ### Overview of the algorithm
 

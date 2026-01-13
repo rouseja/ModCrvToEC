@@ -1,0 +1,137 @@
+Loading "newcmpointcount.m"
+Loading "cmdata.txt"
+Loading "nfdata.m"
+Starting curve 1 with label 66.660.49.e.1. Re-running with precmult = 1.
+Choosing power series precision = 268.
+Creating model with power series precision 268.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 7.
+Nicefying 1x53400 matrix.
+Fourier coefficient size diagnostic.
+True max = 8.51280733132031472360279924157.
+Bound is = 198.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 1, 0, 30 ]. The Manin constant is 1/726.
+Starting modular degree computation.
+Computing 660 periods.
+Analytic modular degree is 28.
+Time to compute analytic modular degree: 376.160
+Minimal modular degree is 28. Choosing elliptic curve [ 0, 0, 1, 0, 30 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 3 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 4 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 5 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 6 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 7 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 8 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 9 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 10 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 268, 268, 268, 268, 268, 268, 268, 268, 268, 268 ].
+precsum = 662, multiplier = 10, powerprec = 76.
+Setting powerprec = 76.
+New preclist = [ 76, 76, 76, 76, 76, 76, 76, 76, 76, 76 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 5 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 6 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 7 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 8 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 9 of 10.
+Computing Fourier expansions of x and y modular functions at cusp 10 of 10.
+Realizing x,y over rationals.
+Computing Grobner basis for ideal.
+Grobner basis time was 2.370.
+Generating rational canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1 in degree 1.
+Matrix size is 147 x 30000.
+For d = 1, dimension of null space is 0.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 432 x 30000.
+For d = 2, dimension of null space is 60.
+Nicefying 60x432 matrix.
+Checking map equation 1 of 5.
+Checking map equation 2 of 5.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 5.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Checking map equation 4 of 5.
+Checking compatability of map equation 1 and 4.
+Checking compatability of map equation 2 and 4.
+Checking compatability of map equation 3 and 4.
+Checking map equation 5 of 5.
+Checking compatability of map equation 1 and 5.
+Checking compatability of map equation 2 and 5.
+Checking compatability of map equation 3 and 5.
+Checking compatability of map equation 4 and 5.
+Time to realize x,y over rationals: 191.000
+Pulling back points
+The codomain of the map is a rank 0 elliptic curve: [ 0, 0, 1, 0, 30 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (0 : -6 : 1).
+Lifting mod p point (7 : 3 : 3 : 8 : 4 : 5 : 10 : 2 : 1 : 2 : 6 : 12 : 11 : 12 : 5 : 2 : 11 : 6 : 3 : 9 : 10 : 4 : 7 : 1 : 2 : 0 : 5 : 2 : 5 : 10 : 6 : 8 : 11 : 3 : 10 : 6 : 1 : 2 : 11 : 8 : 4 : 0 : 12 : 6 : 11 : 1 : 0 : 0 : 1).
+We didn't find a rational point.
+Lifting mod p point (7 : 3 : 3 : 8 : 4 : 5 : 10 : 2 : 1 : 5 : 4 : 7 : 4 : 7 : 12 : 1 : 3 : 0 : 7 : 1 : 10 : 7 : 8 : 7 : 6 : 1 : 2 : 12 : 6 : 12 : 1 : 10 : 4 : 1 : 4 : 3 : 12 : 0 : 11 : 11 : 12 : 5 : 4 : 5 : 8 : 1 : 0 : 0 : 1).
+We didn't find a rational point.
+Lifting mod p point (7 : 3 : 3 : 8 : 4 : 5 : 10 : 2 : 1 : 6 : 3 : 7 : 11 : 7 : 9 : 10 : 12 : 7 : 3 : 3 : 6 : 2 : 11 : 5 : 5 : 12 : 6 : 12 : 2 : 4 : 6 : 8 : 11 : 9 : 12 : 4 : 0 : 11 : 4 : 7 : 10 : 8 : 10 : 2 : 7 : 1 : 0 : 0 : 1).
+We didn't find a rational point.
+Lifting mod p point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 11 : 3 : 3 : 3 : 4 : 12 : 11 : 2 : 0 : 4 : 1 : 11 : 12 : 10 : 4 : 0 : 12 : 0 : 1 : 10 : 1 : 12 : 1 : 12 : 12 : 0 : 12 : 0 : 2 : 10 : 0 : 0 : 10 : 3 : 0 : 1 : 0 : 0 : 0 : 0).
+We found a rational point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : -2 : 3 : 3 : 3 : 4 : -1 : -2 : 2 : 0 : 4 : 1 : -2 : -1 : 10 : 4 : 0 : -1 : 0 : 1 : -3 : 1 : -1 : 1 : -1 : -1 : 0 : -1 : 0 : 2 : -3 : 0 : 0 : -3 : 3 : 0 : 1 : 0 : 0 : 0 : 0).
+Mod 13 there are 4 points, all of which are non-singular.
+Mod 19 there are 5 points, all of which are non-singular.
+Mod 23 there are 4 points, all of which are non-singular.
+Mod 31 there are 4 points, all of which are non-singular.
+Mod 37 there are 1 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_37) is bijective. We're done!
+Pulling back point (0 : 1 : 0).
+Mod 13 there are 0 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_13) is bijective. We're done!
+Pulling back point (0 : 5 : 1).
+Lifting mod p point (9 : 3 : 4 : 8 : 3 : 5 : 10 : 3 : 3 : 2 : 8 : 3 : 9 : 3 : 2 : 1 : 8 : 2 : 4 : 2 : 11 : 4 : 1 : 12 : 3 : 5 : 3 : 4 : 7 : 6 : 7 : 3 : 10 : 6 : 10 : 2 : 10 : 0 : 1 : 7 : 4 : 6 : 2 : 3 : 11 : 0 : 1 : 0 : 0).
+We didn't find a rational point.
+Lifting mod p point (9 : 3 : 4 : 8 : 3 : 5 : 10 : 3 : 3 : 5 : 10 : 10 : 12 : 5 : 8 : 10 : 8 : 2 : 9 : 5 : 12 : 3 : 8 : 9 : 9 : 6 : 9 : 4 : 4 : 9 : 5 : 4 : 1 : 9 : 4 : 0 : 1 : 2 : 11 : 8 : 12 : 5 : 5 : 9 : 8 : 0 : 1 : 0 : 0).
+We didn't find a rational point.
+Lifting mod p point (9 : 3 : 4 : 8 : 3 : 5 : 10 : 3 : 3 : 6 : 8 : 0 : 5 : 5 : 3 : 2 : 10 : 9 : 0 : 6 : 3 : 6 : 4 : 5 : 1 : 2 : 1 : 5 : 2 : 11 : 1 : 6 : 2 : 11 : 12 : 11 : 2 : 11 : 1 : 11 : 10 : 2 : 6 : 1 : 7 : 0 : 1 : 0 : 0).
+We didn't find a rational point.
+Lifting mod p point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 11 : 3 : 3 : 3 : 4 : 12 : 11 : 4 : 0 : 4 : 1 : 11 : 12 : 12 : 4 : 0 : 12 : 0 : 1 : 10 : 1 : 12 : 1 : 12 : 12 : 0 : 12 : 0 : 2 : 10 : 0 : 0 : 10 : 3 : 0 : 1 : 0 : 0 : 0 : 0).
+We found a rational point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : -2 : 3 : 3 : 3 : 4 : -1 : -2 : -9 : 0 : 4 : 1 : -2 : -1 : -1 : 4 : 0 : -1 : 0 : 1 : -3 : 1 : -1 : 1 : -1 : -1 : 0 : -1 : 0 : 2 : -3 : 0 : 0 : -3 : 3 : 0 : 1 : 0 : 0 : 0 : 0).
+Mod 13 there are 4 points, all of which are non-singular.
+Mod 19 there are 5 points, all of which are non-singular.
+Mod 23 there are 4 points, all of which are non-singular.
+Mod 29 there are 8 points, all of which are non-singular.
+Mod 31 there are 4 points, all of which are non-singular.
+Mod 37 there are 1 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_37) is bijective. We're done!
+There are 2 rational points on the given modular curve.
+They are [ (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : -2 : 3 : 3 : 3 : 4 : -1 : -2 : -9 : 0 : 4 : 1 : -2 : -1 : -1 : 4 : 0 : -1 : 0 : 1 : -3 : 1 : -1 : 1 : -1 : -1 : 0 : -1 : 0 : 2 : -3 : 0 : 0 : -3 : 3 : 0 : 1 : 0 : 0 : 0 : 0), (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : -2 : 3 : 3 : 3 : 4 : -1 : -2 : 2 : 0 : 4 : 1 : -2 : -1 : 10 : 4 : 0 : -1 : 0 : 1 : -3 : 1 : -1 : 1 : -1 : -1 : 0 : -1 : 0 : 2 : -3 : 0 : 0 : -3 : 3 : 0 : 1 : 0 : 0 : 0 : 0) ].
+Time to pull back points: 1105.880
+Label: 66.660.49.e.1
+Number of rational cusps: 0
+Number of CM points: 2
+Multiset of CM j-invariants: {* 0^^2 *}
+Number of non-CM points: 0
+Multiset of non-CM j-invariants: {* *}
+Total time needed was 1779.290 sec.
+
+
+Total time: 1782.140 seconds, Total memory usage: 6247.53MB

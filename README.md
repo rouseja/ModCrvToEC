@@ -59,7 +59,7 @@ ratpts := RatPtsFromMaps(N, Map);
 ModEC := ComputeJ(ModEC);
 RatPtsJInvs(ModEC,ratpts);
 ```
-shows that $X_{G}(\Q)$ contains exactly four points, two of which map to $j = 0$ and two of which map to $j = 8000$.
+shows that $X_{G}(\mathbb{Q})$ contains exactly four points, two of which map to $j = 0$ and two of which map to $j = 8000$.
 
 For additional examples, look at the file [Examples.m](https://github.com/rouseja/ModCrvToEC/blob/main/Examples.m) in this repo.
 

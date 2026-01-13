@@ -1,18 +1,17 @@
 // Magma code to find maps from a modular curve to elliptic curves
+// This version includes the algorithm by Ivan Novak to count CM points.
 
 /* Helper function zone */
 
-// The function `PointsViaLifting` is copied from David Zywina's 
-// OpenImage repository (https://github.com/davidzywina/OpenImage)
-// under the MIT License.
-function PointsViaLifting(psi,p,m)
-    /* Input:
+intrinsic PointsViaLifting(psi,p,m) -> SeqEnum
+    { From David Zywina's OpenImage repository under the MIT License.
+      Input:
             psi: a sequence of homogeneous polynomials in Z[x_1,...,x_r]
             p  : a prime
             m  : an integer at least one    
         Output:
             The set of points C(Z/p^m), where C is the subscheme of P^(r-1)_Q defined by psi.
-    */    
+    }    
     r:=Rank(Parent(psi[1]));
     PolZ<[x]>:=PolynomialRing(Integers(),r);
     psi:=[PolZ!f: f in psi];
@@ -53,8 +52,9 @@ function PointsViaLifting(psi,p,m)
 
     S:={[Integers(p^m)!a: a in P] : P in S};
     return S;
-end function;
+end intrinsic;
 
+/* Deprecated - This code was moved to the parser file and running script
 // Selects a rational point on X_G; used to rationalize maps.
 ChooseBasePt := function(ModEC)
   if ModEC`CheckLocal then
@@ -87,7 +87,7 @@ ChooseBasePt := function(ModEC)
   // We choose the rational point with lowest height to be the base point.
   _, ind := Min([ Max([ Height(pts[i][j]) : j in [1..#Eltseq(pts[i])]]) : i in [1..#pts]]);
   return pts[ind];
-end function;
+end function; */
 
 // Helper function for LiftToSL
 FindNewa := function(a,c,N)
@@ -347,22 +347,10 @@ function NicefyRat(ModEC, M)
     printf "Nicefying %ox%o matrix.\n",NumberOfRows(M),NumberOfColumns(M);
   end if;
   M2 := Matrix(Integers(),NumberOfRows(M),NumberOfColumns(M),[ denom*ee[i] : i in [1..#ee]]);
-  if ModEC`Verbose then
-    printf "Computing saturation.\n";
-  end if;
   AA := Saturation(M2);
-  if ModEC`Verbose then
-    printf "Done.\n";
-  end if;
   chk, mult := IsConsistent(ChangeRing(M2,Rationals()),ChangeRing(AA,Rationals()));
   curbat := denom*mult*T;
-  if ModEC`Verbose then
-    printf "Calling LLL.\n";
-  end if;
   newlatbasismat, change := LLL(AA : Proof := false);
-  if ModEC`Verbose then
-    printf "Done.\n";
-  end if;
   finalbat := ChangeRing(change,Rationals())*curbat;
   return finalbat;
 end function;
@@ -423,8 +411,7 @@ PrimitiveDivisionPolynomial := function(E,n)
 end function;
 
 // Build the modular curve record MCR (and related fields) at a precision
-// sufficient for later analytic estimates, scaling by precmult. The parameter 
-// precmult multiplies the default precision by a user-specified quantity.
+// sufficient for later analytic estimates, scaling by precmult. These parameters scale the default power series precision.
 CreateModCrvWithPrec := function(ModEC,precmult)
   // Choose power series precision fairly carefully.
   // What if we assume that the coefficient of q^(n/sl2level) of
@@ -518,6 +505,11 @@ GoodForms := function(ModEC)
       end if;    
     end for;
     nf := NicefyRat(ModEC,FM);
+    if NumberOfColumns(nf) ne NumberOfRows(Bmat) then
+      printf "Failed to correctly identify Hecke eigenforms.\n";
+      printf "Rerun with a larger value of precmult.\n";
+      assert false;
+    end if;
     formmat := nf*Bmat;
     // nf*FM is the matrix whose rows are the good Fourier expansions.
     goodforms := [];
@@ -662,6 +654,7 @@ end function;
 AnalyticDegree := function(ModEC,modf,pergens)
   if ModEC`Verbose then
     printf "Starting modular degree computation.\n";
+    tm := Realtime();
   end if;
   lev := ModEC`MCR`gl2level;
   bigSL := SL(2,Integers(lev));
@@ -757,6 +750,7 @@ AnalyticDegree := function(ModEC,modf,pergens)
   end for;
   if ModEC`Verbose then
     printf "Analytic modular degree is %o.\n",ret;
+    print "Time to compute analytic modular degree:", Realtime(tm);
   end if;
   return ret;
 end function;
@@ -794,41 +788,46 @@ PickBestECs := function(ModEC)
   end for;
   minmoddeg, ind := Min(moddeglist);
   if ModEC`Verbose then
-    printf "Minimal modular degree is %o. Choosing elliptic curve(s) %o.\n",minmoddeg,Elist[1];
+    printf "Minimal modular degree is %o. Choosing elliptic curve %o.\n",minmoddeg,aInvariants(Elist[1]);
   end if;
   Egiven := Elist[1];
   goodforms := ModEC`goodforms[ind];
   goodforms := goodforms;
-  return pers, Elist, manin, Egiven, goodforms;
+  return pers, Elist, manin, Egiven, goodforms, minmoddeg;
 end function;
 
-// Decrease power series precision as appropriate. Sometimes this is still a bit too aggressive, and the
-// actual precision we need will depend on the analytic degree.
+// Decrease power series precision as appropriate, but only enough to ensure
+// we have enough precision to certify the map to the elliptic curve.
 TweakPrec := function(ModEC)
-  numcusps := #ModEC`MCR`cusps;
+  g := ModEC`MCR`genus;
+  maxr := Floor((3*ModEC`ECdegmap+g-1)/ModEC`MCR`model_degree)+1;
+  // The maximum degree in the canonical ring needed to get the map.
+  // Now we use the Sturm bound to know how much precision we need.
   if ModEC`Verbose then
     printf "Tweaking precision.\n";
+    printf "Guaranteed to find map in degree %o.\n",maxr;
+  end if; 
+  if ModEC`Verbose then
+    printf "Old preclist = %o.\n",ModEC`preclist;
   end if;
-  if (Min(ModEC`preclist) gt 6) and (ModEC`precmult le 1) then
-    powerprec := Max([ModEC`MCR`index/2,Min(ModEC`MCR`index,48),ModEC`prec/4]);
-    if (ModEC`MCR`index le 60) then
-      powerprec := Max([ModEC`MCR`index/2,Min(ModEC`MCR`index,48),ModEC`prec/2]);
-    end if;
-    if ModEC`Verbose then
-      printf "Old preclist = %o.\n",ModEC`preclist;
-    end if;
-    preclist := [Ceiling(Min(powerprec,ModEC`prec)*ModEC`MCR`widths[i]/ModEC`MCR`sl2level) : i in [1..numcusps]];
-    if ModEC`Verbose then
-      printf "New preclist = %o.\n",preclist;
-    end if;
-    return preclist;
-  else
-    if ModEC`Verbose then
-      printf "Old preclist = %o.\n",ModEC`preclist;    
-      printf "No change made.\n";
-    end if;
-    return ModEC`preclist;
-  end if;  
+  numcusps := #ModEC`MCR`cusps;
+  precsum := ((3*maxr*ModEC`MCR`k)/12)*ModEC`MCR`index+2;
+  multiplier := &+[ ModEC`MCR`widths[r]/ModEC`MCR`sl2level : r in [1..numcusps]];
+  powerprec := Ceiling(precsum/multiplier)+9;
+  if ModEC`Verbose then
+    printf "precsum = %o, multiplier = %o, powerprec = %o.\n",precsum,multiplier,powerprec;
+  end if;
+  if (powerprec gt ModEC`prec) then
+    printf "The precision currently available is %o, but the needed precision is %o.\n",ModEC`prec,powerprec;
+    printf "Try rerunning this case with precmult = %o.\n",RealField(5)!(0.1+powerprec/ModEC`prec);
+    assert false;  
+  end if;
+  preclist := [Max(Ceiling(Min(powerprec,ModEC`prec)*ModEC`MCR`widths[i]/ModEC`MCR`sl2level),2) : i in [1..numcusps]];
+  if ModEC`Verbose then
+    printf "Setting powerprec = %o.\n",Min(powerprec,ModEC`prec);
+    printf "New preclist = %o.\n",preclist;
+  end if;
+  return preclist, maxr;
 end function;
 
 // Compute exact points on EK coming from the period integrals.
@@ -939,17 +938,21 @@ end function;
 // The ultimate goal here is just to compute the image under X_G -> E of the rational basepoint on X_G.
 // So we make sure to pick a rational map from X_G -> E that doesn't have the basepoint in the base locus.
 RealizeInFF := function(ModEC)
+  if ModEC`Verbose then
+    printf "Realizing x,y over cyclotomic field.\n";
+    tm := Realtime();
+  end if;
   numcusps := #ModEC`MCR`cusps;
   polyring := PolynomialRing(ModEC`K,#ModEC`genforms,"grevlex");
   vars := [ polyring.i : i in [1..#ModEC`genforms]];
   gens := [ Evaluate(ModEC`MCR`psi[j],vars) : j in [1..#ModEC`MCR`psi]];
-  ttemp := Cputime();
+  ttemp := Realtime();
   if ModEC`Verbose then
     printf "Computing Grobner basis for ideal.\n";
   end if;
   I := ideal<polyring | gens>;
   G := GroebnerBasis(I);
-  gbtime := Cputime(ttemp);
+  gbtime := Realtime(ttemp);
   if ModEC`Verbose then
     printf "Grobner basis time was %o.\n",gbtime;
   end if;
@@ -985,7 +988,7 @@ RealizeInFF := function(ModEC)
     newvars := [];
     if (d eq 1) then
       for ind in [1..#vars] do
-        newprd := [ModEC`RR!ModEC`genforms[ind][r] : r in [1..numcusps]];
+        newprd := [ ModEC`RR!ModEC`genforms[ind][r] + BigO(ModEC`RR.1^(ModEC`preclist[r]+1)): r in [1..numcusps]];
         Append(~newfourier,newprd);
       end for;
       newvars := vars;
@@ -1006,34 +1009,56 @@ RealizeInFF := function(ModEC)
     Append(~canring,<newfourier,newvars>);
 
     for ii in [1..ModEC`nummaps] do
-      if not donelist[ii] then
+      if not donelist[ii] and (d ge ModEC`maxdegree - 1) then
+        // We only build the matrix if we might find the map.
         if ModEC`Verbose then
           printf "Searching for map %o of %o.\n",ii,ModEC`nummaps;
         end if;
         mat := ZeroMatrix(ModEC`K,0,2*&+[ ModEC`newprec[ii][r] : r in [1..numcusps]]);
         for i in [1..#canring[d][1]] do
+          pre := Realtime();
           pp := [ ModEC`xfourierlist[ii][r]*canring[d][1][i][r] : r in [1..numcusps]];
-          pp2 := [ ModEC`yfourierlist[ii][r]*canring[d][1][i][r] : r in [1..numcusps]];      
+          pp2 := [ ModEC`yfourierlist[ii][r]*canring[d][1][i][r] : r in [1..numcusps]];
+          post := Realtime(pre);
           vecseq := &cat [ [ Coefficient(pp[r],m) : m in [Valuation(ModEC`xfourierlist[ii][r])..Valuation(ModEC`xfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
           vecseq2 := &cat [ [ Coefficient(pp2[r],m) : m in [Valuation(ModEC`yfourierlist[ii][r])..Valuation(ModEC`yfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
+          pre := Realtime();
           mat := VerticalJoin(mat,Matrix(ModEC`K,1,#vecseq+#vecseq2,vecseq cat vecseq2));
+          post := Realtime(pre);
         end for;
         for i in [1..#canring[d][1]] do
           vecseq := &cat [ [ Coefficient(canring[d][1][i][r],m) : m in [Valuation(ModEC`xfourierlist[ii][r])..Valuation(ModEC`xfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
           vecseq2 := &cat [ [ ModEC`K!0 : m in [Valuation(ModEC`yfourierlist[ii][r])..Valuation(ModEC`yfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
+          pre := Realtime();
           mat := VerticalJoin(mat,Matrix(ModEC`K,1,#vecseq+#vecseq2,vecseq cat vecseq2));
+          post := Realtime(pre);
         end for;
         for i in [1..#canring[d][1]] do
           vecseq := &cat [ [ ModEC`K!0 : m in [Valuation(ModEC`xfourierlist[ii][r])..Valuation(ModEC`xfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
           vecseq2 := &cat [ [ Coefficient(canring[d][1][i][r],m) : m in [Valuation(ModEC`yfourierlist[ii][r])..Valuation(ModEC`yfourierlist[ii][r])+ModEC`newprec[ii][r]-1]] : r in [1..numcusps]];
+          pre := Realtime();
           mat := VerticalJoin(mat,Matrix(ModEC`K,1,#vecseq+#vecseq2,vecseq cat vecseq2));
+          post := Realtime(pre);
         end for;
+        pre := Realtime();
         NN2 := NullSpace(mat);
+        nulltime := Realtime(pre);
         dimdim2 := Dimension(NN2);
         if ModEC`Verbose then
           printf "For d = %o, dimension of null space is %o.\n",d,dimdim2;
+          printf "Null space time was %o sec.\n",nulltime;
+        end if;
+        if (dimdim2 eq 0) and (d ge ModEC`maxdegree) then
+          printf "We didn't find a map in a degree where it is guaranteed to exist!\n";
+          assert false;
         end if;
         if dimdim2 ge 1 then
+          if not (assigned ModEC`cyclodegree) then
+            ModEC`cyclodegree := d;
+          end if;
+          // If the assertion above fails, we are finding the map in a degree where it is
+          // guaranteed not to exist.
+
           // Make sure to get a map where our chosen base point on X_G
           // is not in the base locus! Magma can be really slow 
           // to evaluate our map in Step 10 otherwise.
@@ -1066,7 +1091,11 @@ RealizeInFF := function(ModEC)
     end for;
   end while;
 
-  return ecmaps, LMs, canring;
+  if ModEC`Verbose then
+    print "Time to realize x,y over cyclotomic field:", Realtime(tm);
+  end if;
+
+  return ecmaps, LMs, canring, ModEC`cyclodegree;
 end function;
 
 // Translate the Fourier expansions of x,y so that the chosen base 
@@ -1100,11 +1129,20 @@ TransByBasePt := function(ModEC)
         newxfourier := xfourier;
         newyfourier := yfourier;
       else
-        lam := (yfourier-transpt[2])/(xfourier-transpt[1]);
-        nu := (transpt[2]*xfourier-yfourier*transpt[1])/(xfourier-transpt[1]);
-        ainvi := aInvariants(ModEC`Elist[ii]);
-        newxfourier := lam^2 + ainvi[1]*lam - ainvi[2] - transpt[1]- xfourier;
-        newyfourier := -(lam + ainvi[1])*newxfourier - nu - ainvi[3];
+        //printf "xfourier = %o.\n",xfourier;
+        //printf "yfourier = %o.\n",yfourier;
+        //printf "transpt = %o.\n",transpt;
+        if IsWeaklyZero(xfourier-transpt[1]) then
+          PS := Parent(xfourier);
+          newxfourier := O(PS.1^0);
+          newyfourier := O(PS.1^0);
+        else
+          lam := (yfourier-transpt[2])/(xfourier-transpt[1]);
+          nu := (transpt[2]*xfourier-yfourier*transpt[1])/(xfourier-transpt[1]);
+          ainvi := aInvariants(ModEC`Elist[ii]);
+          newxfourier := lam^2 + ainvi[1]*lam - ainvi[2] - transpt[1]- xfourier;
+          newyfourier := -(lam + ainvi[1])*newxfourier - nu - ainvi[3];
+        end if;  
       end if;
       Append(~np,Min(RelativePrecision(newxfourier),RelativePrecision(newyfourier)));      
       Append(~xf,newxfourier);
@@ -1117,14 +1155,57 @@ TransByBasePt := function(ModEC)
   return newxfourierlist, newyfourierlist, newprec2;
 end function;
 
+// A function to check if a modular form with given Fourier expansions is zero or not
+CheckFourier := procedure(fourierlist,weight,index)
+  numcusps := #fourierlist;
+  precsum := 0;
+  for r in [1..numcusps] do
+    if not IsWeaklyZero(fourierlist[r]) then
+      printf "Error in FourierCheck. The map doesn't work or compatibility fails.\n";
+      assert false;
+    end if;
+    precsum := precsum + AbsolutePrecision(fourierlist[r]);            
+  end for;
+  precneeded := (weight/12)*index;
+  if precsum le precneeded then 
+    printf "Error in FourierCheck. Not enough power series precision to prove form vanishes.\n";
+    assert false;
+  end if;
+end procedure;
+
 // Re-run the linear algebra of RealizeInFF over Q (instead of K)
 // to produce a rational map X_G --> E.
 MapOverQ := function(ModEC)
+  if ModEC`Verbose then
+    print "Realizing x,y over rationals.";
+    tm := Realtime();
+  end if;
   numcusps := #ModEC`MCR`cusps;
-  canring := ModEC`canring;
   polyring := PolynomialRing(Rationals(),#ModEC`genforms,"grevlex");
-  vars := [ polyring.i : i in [1..#ModEC`genforms]];
-  initideal := ideal<polyring | [polyring!mm : mm in ModEC`LMs]>;
+  if ModEC`IgnoreBase then
+    canring := <>;
+    ModEC`newxfourierlist := ModEC`xfourierlist;
+    ModEC`newyfourierlist := ModEC`yfourierlist;
+    ModEC`newprec2 := ModEC`newprec;    
+    vars := [ polyring.i : i in [1..#ModEC`genforms]];
+    gens := [ Evaluate(ModEC`MCR`psi[j],vars) : j in [1..#ModEC`MCR`psi]];
+    ttemp := Realtime();
+    if ModEC`Verbose then
+      printf "Computing Grobner basis for ideal.\n";
+    end if;
+    I := ideal<polyring | gens>;
+    G := GroebnerBasis(I);
+    gbtime := Realtime(ttemp);
+    if ModEC`Verbose then
+      printf "Grobner basis time was %o.\n",gbtime;
+    end if;
+    LMs := [ LeadingMonomial(G[i]) : i in [1..#G]];
+    initideal := ideal<polyring | LMs>;
+  else
+    canring := ModEC`canring;
+    vars := [ polyring.i : i in [1..#ModEC`genforms]];
+    initideal := ideal<polyring | [polyring!mm : mm in ModEC`LMs]>;
+  end if;
 
   if ModEC`Verbose then
     printf "Generating rational canonical ring.\n";
@@ -1140,13 +1221,17 @@ MapOverQ := function(ModEC)
       if ModEC`Verbose then
         printf "Generating degree %o piece of canonical ring.\n",d;
       end if;
+      if (d gt ModEC`maxdegree) then
+        printf "If the map exists, it should have been found by this point.\n";
+        assert false;
+      end if;
       mons := MonomialsOfDegree(polyring,d);
       bas := [ m : m in mons | not (m in initideal)];
       newfourier := <>;
       newvars := [];
       if (d eq 1) then
         for ind in [1..#vars] do
-          newprd := [ModEC`RR!ModEC`genforms[ind][r] : r in [1..numcusps]];
+          newprd := [ ModEC`RR!ModEC`genforms[ind][r] + BigO(ModEC`RR.1^(ModEC`preclist[r]+1)): r in [1..numcusps]];
           Append(~newfourier,newprd);
         end for;
         newvars := vars;
@@ -1170,7 +1255,7 @@ MapOverQ := function(ModEC)
     end if;  
 
     for ii in [1..ModEC`nummaps] do
-      if not donelist[ii] then
+      if (not donelist[ii] and (d ge ModEC`maxdegree - 1) and ((not assigned ModEC`cyclodegree) or (d ge ModEC`cyclodegree))) then
         if ModEC`Verbose then
           printf "Searching for map %o of %o in degree %o.\n",ii,ModEC`nummaps,d;
         end if;
@@ -1192,55 +1277,80 @@ MapOverQ := function(ModEC)
           vecseq2 := &cat [ &cat [ Eltseq(Coefficient(canring[d][1][i][r],m)) : m in [Valuation(ModEC`newyfourierlist[ii][r])..Valuation(ModEC`newyfourierlist[ii][r])+ModEC`newprec2[ii][r]-1]] : r in [1..numcusps]];
           mat := VerticalJoin(mat,Matrix(Rationals(),1,#vecseq+#vecseq2,vecseq cat vecseq2));
         end for;
+        if ModEC`Verbose then
+            printf "Matrix size is %o x %o.\n",NumberOfRows(mat),NumberOfColumns(mat);
+        end if;
         NN2 := NullSpace(mat);
         dimdim2 := Dimension(NN2);
         if ModEC`Verbose then
           printf "For d = %o, dimension of null space is %o.\n",d,dimdim2;
+        end if;
+        if (dimdim2 eq 0) and (d ge ModEC`maxdegree) then
+          printf "If the map exists, it should have been found by now!\n";
+          assert false;
         end if;
         if dimdim2 ge 1 then
           donelist[ii] := true;
           nullmat2 := Matrix(Basis(NN2));
           change2 := NicefyRat(ModEC,nullmat2);
           ecmapii := [];
+          fouriermaps := [];
+          precchecking := [];
+          ecpoly := DefiningPolynomial(ModEC`Egiven);
           for j in [1..Min(dimdim2,5)] do
             v2 := (change2*nullmat2)[j];
             curmap3 := &+[ v2[i]*bas[i] : i in [1..#bas]];
             curmap1 := -&+[ v2[i+#bas]*bas[i] : i in [1..#bas]];
             curmap2 := -&+[ v2[i+2*#bas]*bas[i] : i in [1..#bas]];
-            Append(~ecmapii,[curmap1,curmap2,curmap3]);
+            Append(~ecmapii,[curmap1,curmap2,curmap3]);            
+            zfouriermap := [&+[ v2[i]*canring[d][1][i][r] : i in [1..#bas]] : r in [1..numcusps]];
+            xfouriermap := [-&+[ v2[i+#bas]*canring[d][1][i][r] : i in [1..#bas]] : r in [1..numcusps]];
+            yfouriermap := [-&+[ v2[i+2*#bas]*canring[d][1][i][r] : i in [1..#bas]] : r in [1..numcusps]];
+            mapstoec := [ Evaluate(ecpoly,[xfouriermap[r],yfouriermap[r],zfouriermap[r]]) : r in [1..numcusps]];
+            if ModEC`Verbose then
+              printf "Checking map equation %o of %o.\n",j,Min(dimdim2,5);
+            end if;
+            CheckFourier(mapstoec,3*d*ModEC`MCR`k,ModEC`MCR`index);
+            Append(~fouriermaps,[xfouriermap,yfouriermap,zfouriermap]);
+            for l in [1..j-1] do
+              if ModEC`Verbose then
+                printf "Checking compatability of map equation %o and %o.\n",l,j;
+              end if;
+              xcheck := [fouriermaps[l][1][r]*zfouriermap[r] - fouriermaps[l][3][r]*xfouriermap[r] : r in [1..numcusps]];
+              CheckFourier(mapstoec,2*d*ModEC`MCR`k,ModEC`MCR`index);
+              ycheck := [fouriermaps[l][2][r]*zfouriermap[r] - fouriermaps[l][3][r]*yfouriermap[r] : r in [1..numcusps]];
+              CheckFourier(mapstoec,2*d*ModEC`MCR`k,ModEC`MCR`index);
+            end for;
           end for;
           ecmaps[ii] := ecmapii;  
         end if;
       end if;  
     end for;  
   end while;
-  return ecmaps;
+  if ModEC`Verbose then
+    print "Time to realize x,y over rationals:", Realtime(tm);
+  end if;
+  return ecmapii;
 end function;
 
-// Builds Magma maps X_G --> E, which automatically checks that they do indeed map the domain to
-// the codomain. It also verifies the maps are non-constant.
+// Builds Magma maps X_G --> E, which verifies the maps are non-constant.
+// This function is no longer used. It is an alternative to the code 
+// that is actually used in MapOverQ.
 CheckMaps := function(ModEC)
   maplst := <>;
   for ii in [1..ModEC`nummaps] do
     if ModEC`Verbose then
-      printf "Checking map %o of %o.\n",ii,ModEC`nummaps;
+      printf "Checking the map is non-constant.\n";
     end if;
-    mapchk := map<ModEC`XG -> ModEC`Elist[ii] | ModEC`ecmaps[ii]>;
-    Append(~maplst,mapchk);
-  end for;
-  if ModEC`Verbose then
-    printf "Checking the maps are non-constant.\n";
-  end if;
-  for ii in [1..ModEC`nummaps] do
-    preiminf := (Codomain(maplst[ii])![0,1,0])@@maplst[ii];
+    mapchk := map<ModEC`XG -> ModEC`Elist[ii] | ModEC`ecmaps[ii] : Check := false>;
+    preiminf := (Codomain(mapchk)![0,1,0])@@mapchk;
     if ModEC`Verbose then
       print "Dimension of preimage: ", Dimension(preiminf);
     end if;
     assert Dimension(preiminf) eq 0;
   end for;  
-  return maplst;
+  return <mapchk>;
 end function;
-
 
 /* Main functions */
 
@@ -1267,6 +1377,10 @@ end function;
 intrinsic RatPtsFromMaps(N::RngIntElt, mps::Tup : Verbose := false) -> SeqEnum
   {Pulls back points on a rank 0 elliptic curve to provably determine all rational points on the modular curve (the domain of the maps). This custom method uses reduction mod p, Hensel lifting, and rational reconstruction; for low genus curves, naive point-pullback also works.}
 
+  if Verbose then
+    print "Pulling back points";
+    tm := Realtime();
+  end if;
   allXpoints := [];
   for phi in mps do
     E := Codomain(phi);
@@ -1435,6 +1549,9 @@ intrinsic RatPtsFromMaps(N::RngIntElt, mps::Tup : Verbose := false) -> SeqEnum
         end if;
     end if;
   end if;
+  if Verbose then
+    print "Time to pull back points:", Realtime(tm);
+  end if;
   return allXpoints;
 end intrinsic;
 
@@ -1444,25 +1561,25 @@ end intrinsic;
 // 1. decprec - The decimal precision desired for period computations. By default this is set to 10, and the function
 // tries to pick enough power series precision to ensure the comptuations are roughly accurate to that many decimal places.
 // 2. precmult - This parameter (which defaults to 1) allows the user to increase the power series precision by a given
-// factor. In a few cases, the computations will not run successfully if precmult = 1. If precmult > 1, then
-// the reduction of power series precision in Step 7 won't occur.
+// factor. Sometimes the script will inform the user more precision is needed.
 // 3. Verbose - This defaults to false, but when set to true it provides a lot of information about what is going on in
 // each step of the computation. 
 
-intrinsic InitializeModEC(N::RngIntElt, gens::SeqEnum : decprec := 10, precmult := 1, Verbose := false) -> Rec
+intrinsic InitializeModEC(N::RngIntElt, gens::SeqEnum : decprec := 5, precmult := 1, Verbose := false) -> Rec
   {Prepares a ModEC record that is used for FindMapsToEC and EllipticCurveQuoCandidates.}
   // This is the main record format we'll use.
   RecModEC := recformat<
-    N, gens, ainvlist, multlist, nummaps, CheckLocal, LocalExp, decprec, precmult, Verbose,
+    N, gens, ainvlist, multlist, nummaps, CheckLocal, LocalExp, decprec, precmult, Verbose, IgnoreBase,
     C, EXP, prec, MCR, preclist, genforms, XG,
     BasePt,
     PS, K, B, goodforms, psiCF,
     perlist,
-    pers, Elist, manin, Egiven,
+    pers, Elist, manin, Egiven, ECdegmap,
     translist,
-    xfourierlist, yfourierlist, newprec, RR,
+    xfourierlist, yfourierlist, newprec, RR, maxdegree, cyclodegree,
     ecmaps, LMs, canring,
-    newxfourierlist, newyfourierlist, newprec2
+    newxfourierlist, newyfourierlist, newprec2,
+    ModelMCR, jmap
   >;
   transposegens := [ [a[1],a[3],a[2],a[4]] : a in gens ];
   // David Zywina's code has an "opposite" modular intepretation to that of the LMFDB.
@@ -1473,8 +1590,11 @@ intrinsic InitializeModEC(N::RngIntElt, gens::SeqEnum : decprec := 10, precmult 
   ModEC`C := ComplexField(2 * decprec);
   EXP, prec, MCR := CreateModCrvWithPrec(ModEC,precmult);
   ModEC`EXP := EXP; 
-  ModEC`prec := prec; 
-  ModEC`MCR := MCR;
+  ModEC`prec := prec;
+  ModEC`MCR := MCR; 
+  ModEC`ModelMCR := MCR;
+  ModEC`ModelMCR`prec := MCR`prec;
+  ModEC`ModelMCR`F0 := MCR`F0;  
   gl2lev := MCR`gl2level;
   sl2lev := MCR`sl2level;
   numcusps := #MCR`cusps;
@@ -1594,20 +1714,19 @@ end intrinsic;
 // There is a second version that takes as input a level, list of generators, elliptic curves, and multiplicities and calls 
 // InitializeModEC first.
 
-// The optional parameter CheckLocal specifies whether the code should check whether the modular curve X_G
-// has local points at primes p dividing the level. The optional parameter LocalExp specifies to lift mod p 
-// points on X_G to points mod p^n.
+// The optional parameter IgnoreBase when set to true assumes that the basepoint can
+// be chosen to be the cusp at infinity. This allows several steps in the algorithm to
+// be skipped. 
 
 // The additional optional parameters decprec, precmult, and Verbose can be set by InitializeModEC.
 
 // The optional parameter nummaps is currently unused (the function always returns one map). 
 
-intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, CheckLocal := true, LocalExp := 3) -> Tup
+intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase := false) -> Tup
   {Constructs rational maps X_G --> E where E lives in the supplied isogeny class}
 
   ModEC`nummaps := nummaps;
-  ModEC`CheckLocal := CheckLocal;
-  ModEC`LocalExp := LocalExp;
+  ModEC`IgnoreBase := IgnoreBase;
 
   if Type(ainvlist[1]) eq RngIntElt then
     ainvlist := [ainvlist];
@@ -1619,14 +1738,18 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, CheckLocal
   end if;
   ModEC`multlist := multlist;
 
+/*
   // Step 1 - Chose a rational base point. The current version of the code requires
   // that it is able to find a rational point via a point search.
-  ModEC`BasePt := ChooseBasePt(ModEC);
-  if Type(ModEC`BasePt) eq RngIntElt then
-    print "Error: A point search did not find a rational point on the modular curve.";
-    print "Case not yet implemented.";
-    return <>;
-  end if;
+  if not IgnoreBase then
+    ModEC`BasePt := ChooseBasePt(ModEC);
+    if Type(ModEC`BasePt) eq RngIntElt then
+      print "Error: A point search did not find a rational point on the modular curve.";
+      print "Case not yet implemented.";
+      return <>;
+    end if;
+  end if;  
+*/
 
   // Step 2 - Determine a weight 2 cusp form(s) that are eigenforms of Hecke operators 
   // with the desired Hecke eigenvalues. Then, compute the Fourier expansions of the 
@@ -1651,12 +1774,13 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, CheckLocal
   // Step 5 - Identify isogeny class for each form.
   // Find EC for which period ratios are the same.
 
-  pers, Elist, manin, Egiven, goodforms := PickBestECs(ModEC);
+  pers, Elist, manin, Egiven, goodforms, ECdegmap := PickBestECs(ModEC);
   ModEC`pers := pers;
   ModEC`Elist := Elist;
   ModEC`manin := manin;
   ModEC`Egiven := Egiven;
   ModEC`goodforms := goodforms;
+  ModEC`ECdegmap := ECdegmap;
 
   // Step 6 - For each cusp and map, compute period integral from that cusp to the cusp at
   // infinity. Take the image of this under the isomorphism C/Lambda -> E(C) and compute
@@ -1667,7 +1791,7 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, CheckLocal
 
   // Step 7 - Tweak precision
 
-  ModEC`preclist := TweakPrec(ModEC);
+  ModEC`preclist, ModEC`maxdegree := TweakPrec(ModEC);
 
   // Step 8 - Fourier expansions of maps to elliptic curve. Use the result of step 5. 
   
@@ -1678,39 +1802,219 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, CheckLocal
   ModEC`RR := RR;
 
   // Step 9 - Realize x and y modular functions in function field of modular curve over Q(zeta_N)
+  if not IgnoreBase then
+    ecmaps, LMs, canring, cyclodegree := RealizeInFF(ModEC);
+    ModEC`ecmaps := ecmaps;
+    ModEC`LMs := LMs;
+    ModEC`canring := canring;
+    ModEC`cyclodegree := cyclodegree;
+  end if;
 
-  ecmaps, LMs, canring := RealizeInFF(ModEC);
-  ModEC`ecmaps := ecmaps;
-  ModEC`LMs := LMs;
-  ModEC`canring := canring;
   // Note: canring is a list of pairs. The first thing in a pair is list of 
   // lists of Fourier expansions of the degree d generators of the canonical 
   // ring. The second thing in a pair is list of degree d monomials 
   // representing the elements.
 
   // Step 10 - Compute images of basepoint and translate by that.
-
-  newxfourierlist, newyfourierlist, newprec2 := TransByBasePt(ModEC);
-  ModEC`newxfourierlist := newxfourierlist;
-  ModEC`newyfourierlist := newyfourierlist;
-  ModEC`newprec2 := newprec2;
+  
+  if not IgnoreBase then
+    newxfourierlist, newyfourierlist, newprec2 := TransByBasePt(ModEC);
+    ModEC`newxfourierlist := newxfourierlist;
+    ModEC`newyfourierlist := newyfourierlist;
+    ModEC`newprec2 := newprec2;
+  end if;  
 
   // Step 11 - Do the linear algebra again, but this time do it over Q and not Q(zeta_n).
 
   ModEC`ecmaps := MapOverQ(ModEC);
 
   // Step 12 - Check that the maps we get actually work and return.
+  Map := map<ModEC`XG -> ModEC`Elist[1] | ModEC`ecmaps[1] : Check := false>;
 
-  return CheckMaps(ModEC);
-
+  return <Map>;
 end intrinsic;
 
 // Wrapper function for the main `FindMapsToEC` function.
-intrinsic FindMapsToEC(N::RngIntElt, gens::SeqEnum, ainvlist, multlist : nummaps := 1, CheckLocal := true, LocalExp := 3, decprec := 10, precmult := 1, Verbose := false) -> Tup
+intrinsic FindMapsToEC(N::RngIntElt, gens::SeqEnum, ainvlist, multlist : nummaps := 1, CheckLocal := true, LocalExp := 3, decprec := 5, precmult := 1, Verbose := false, IgnoreBase := false) -> Tup
   {Wrapper function for InitializeModEC and FindMapsToEC}
 
   ModEC := InitializeModEC(N, gens : decprec := decprec, precmult := precmult, Verbose := Verbose);
 
   return FindMapsToEC(ModEC, ainvlist, multlist : nummaps := nummaps, CheckLocal := CheckLocal, LocalExp := LocalExp);
 
+end intrinsic;
+
+// This function takes an already existing ModEC record and computes the map the j-map
+// j : X_G -> P^1. The result is stored in the ModEC field jmap.
+
+intrinsic ComputeJ(ModEC::Rec) -> Rec
+  {Computes equations (from 1 to 5) from X_G to j-line}
+  // Step 1 - Check precision. If insufficient, ask for more.
+  if ModEC`Verbose then
+    printf "Computing j map.\n";
+    tm := Realtime();
+  end if;
+  N := ModEC`N;
+  numcusps := #ModEC`ModelMCR`cusps;
+  maxjdeg := Floor((ModEC`ModelMCR`index + ModEC`ModelMCR`genus - 1)/ModEC`ModelMCR`model_degree) + 1;
+  minjdeg := maxjdeg - 1;
+  absprec := Max([ (ModEC`ModelMCR`prec[i]/ModEC`ModelMCR`widths[i])*N : i in [1..numcusps]]);
+  // The numbers in the list above should all be about the same.
+  precsum := ((2*maxjdeg*(ModEC`ModelMCR`k+12))/12)*ModEC`ModelMCR`index+2;
+  multiplier := &+[ ModEC`ModelMCR`widths[r]/ModEC`ModelMCR`sl2level : r in [1..numcusps]];
+  neededprec := Ceiling(precsum/multiplier)+7;
+  if neededprec gt absprec then
+    if ModEC`Verbose then
+      printf "Increasing modular form precision to %o to compute j-map.\n",neededprec;
+    end if;
+    ModEC`ModelMCR := IncreaseModularFormPrecision(ModEC`ModelMCR,[Ceiling(neededprec*ModEC`ModelMCR`widths[i]/N) : i in [1..numcusps]]);
+    delete ModEC`canring;
+    ModEC`genforms := [ [ ModEC`ModelMCR`F0[i][j] : j in [1..numcusps]] : i in [1..#ModEC`ModelMCR`F0]];
+  end if;
+  preclist := ModEC`ModelMCR`prec;
+  jpolys := [];
+  // Step 2 - Check to see what if any of the canonical ring has been built.
+  polyring := PolynomialRing(Rationals(),#ModEC`genforms,"grevlex");
+  if not (assigned ModEC`canring) then
+    canring := <>;
+    vars := [ polyring.i : i in [1..#ModEC`genforms]];
+    gens := [ Evaluate(ModEC`ModelMCR`psi[j],vars) : j in [1..#ModEC`ModelMCR`psi]];
+    ttemp := Realtime();
+    if ModEC`Verbose then
+      printf "Computing Grobner basis for ideal.\n";
+    end if;
+    I := ideal<polyring | gens>;
+    G := GroebnerBasis(I);
+    gbtime := Realtime(ttemp);
+    if ModEC`Verbose then
+      printf "Grobner basis time was %o.\n",gbtime;
+    end if;
+    LMs := [ LeadingMonomial(G[i]) : i in [1..#G]];
+    initideal := ideal<polyring | LMs>;
+  else
+    canring := ModEC`canring;
+    vars := [ polyring.i : i in [1..#ModEC`genforms]];
+    initideal := ideal<polyring | [polyring!mm : mm in ModEC`LMs]>;
+  end if;
+  done := false;
+  d := 0;
+  // Make E4^3 and Delta.
+  R<qqq> := PowerSeriesRing(BaseRing(Parent(ModEC`ModelMCR`F0[1][1])) : Precision := neededprec);
+  E4cube := Eisenstein(4,qqq)^3;
+  del := Delta(qqq);
+  q := ModEC`PS.1;
+  jnum := [ Evaluate(E4cube,q^ModEC`ModelMCR`widths[i])+BigO(q^preclist[i]) : i in [1..numcusps]];
+  jdenom := [ Evaluate(del,q^ModEC`ModelMCR`widths[i])+BigO(q^preclist[i]) : i in [1..numcusps]];
+  while not done do
+    d := d + 1;
+    if #canring lt d then
+      // Step 3 - Build degree d piece of canonical ring
+      if ModEC`Verbose then
+        printf "Generating degree %o piece of canonical ring.\n",d;
+      end if;
+      if (d gt maxjdeg) then
+        printf "If the map exists, it should have been found by this point.\n";
+        assert false;
+      end if;
+      mons := MonomialsOfDegree(polyring,d);
+      bas := [ m : m in mons | not (m in initideal)];
+      newfourier := <>;
+      newvars := [];
+      if not assigned ModEC`RR then
+       RR<zz> := LaurentSeriesRing(ModEC`K);
+       ModEC`RR := RR;
+      end if;
+      if (d eq 1) then
+        for ind in [1..#vars] do
+          newprd := [ ModEC`RR!ModEC`genforms[ind][r] + BigO(ModEC`RR.1^(preclist[r]+1)): r in [1..numcusps]];
+          Append(~newfourier,newprd);
+        end for;
+        newvars := vars;
+      else
+        for j in [1..#bas] do
+          curmon := bas[j];
+          // We have to be able to write curmon as a product of a degree (d-1)
+          // monomial not in initideal, and a degree 1 element.
+          // If we couldn't, then curmon would be in initideal
+          ind := Index([ IsDivisibleBy(curmon,polyring!canring[d-1][2][k]) : k in [1..#canring[d-1][2]]],true);
+          chk, q := IsDivisibleBy(curmon,polyring!canring[d-1][2][ind]);
+          ind2 := Index(vars,q);
+          newprd := [ModEC`RR!(ModEC`genforms[ind2][r]*(canring[d-1][1][ind][r])) : r in [1..numcusps]];
+          Append(~newfourier,newprd);
+          Append(~newvars,curmon);
+        end for;  
+      end if;
+      Append(~canring,<newfourier,newvars>);
+    else
+      bas := canring[d][2];
+    end if;  
+
+    // Step 4 - linear algebra
+    if (d ge minjdeg) then
+      if ModEC`Verbose then
+        printf "Searching for jmap in degree %o.\n",d;
+        printf "preclist = %o.\n",preclist;
+      end if;
+      mat := ZeroMatrix(Rationals(),0,(&+[ preclist[r] : r in [1..numcusps]])*Degree(ModEC`K));
+      for i in [1..#canring[d][1]] do
+        pp := [ jnum[r]*canring[d][1][i][r] : r in [1..numcusps]];
+        vecseq := &cat [ &cat [ Eltseq(Coefficient(pp[r],m)) : m in [0..preclist[r]-1]] : r in [1..numcusps]];
+        mat := VerticalJoin(mat,Matrix(Rationals(),1,#vecseq,vecseq));
+      end for;
+      for i in [1..#canring[d][1]] do
+        pp2 := [ jdenom[r]*canring[d][1][i][r] : r in [1..numcusps]];      
+        vecseq2 := &cat [ &cat [ Eltseq(Coefficient(pp2[r],m)) : m in [0..preclist[r]-1]] : r in [1..numcusps]];
+        mat := VerticalJoin(mat,Matrix(Rationals(),1,#vecseq2,vecseq2));
+      end for;
+      if ModEC`Verbose then
+        printf "Matrix size is %o x %o.\n",NumberOfRows(mat),NumberOfColumns(mat);
+      end if;
+      NN2 := NullSpace(mat);
+      dimdim2 := Dimension(NN2);
+      if ModEC`Verbose then
+        printf "For d = %o, dimension of null space is %o.\n",d,dimdim2;
+      end if;
+      if (dimdim2 eq 0) and (d ge maxjdeg) then
+        printf "If the map exists, it should have been found by now!\n";
+        assert false;
+      end if;
+      if dimdim2 ge 1 then
+        done := true;
+        nullmat2 := Matrix(Basis(NN2));
+        change2 := NicefyRat(ModEC,nullmat2);
+        for j in [1..Min(dimdim2,5)] do
+          v2 := (change2*nullmat2)[j];
+          denomfouriermap := [ &+[ v2[i]*canring[d][1][i][r]*jnum[r] : i in [1..#bas]] : r in [1..numcusps]];
+          numfouriermap := [-&+[ v2[i+#bas]*canring[d][1][i][r]*jdenom[r] : i in [1..#bas]] : r in [1..numcusps]];
+          chk := [ numfouriermap[r] - denomfouriermap[r] : r in [1..numcusps]];
+          if ModEC`Verbose then
+            printf "Checking map equation %o of %o.\n",j,Min(dimdim2,5);
+          end if;
+          CheckFourier(chk,12+d*ModEC`ModelMCR`k,ModEC`ModelMCR`index);
+          jdenompoly := &+[ v2[i]*bas[i] : i in [1..#bas]];
+          jnumpoly := -&+[ v2[i+#bas]*bas[i] : i in [1..#bas]];
+          Append(~jpolys,[jnumpoly,jdenompoly]);
+        end for;
+      end if;
+    end if;  
+  end while;
+  ModEC`jmap := map< ModEC`XG -> ProjectiveSpace(Rationals(),1) | jpolys >;
+  if ModEC`Verbose then
+    print "Time to compute j map:", Realtime(tm);
+  end if;
+  return ModEC;
+end intrinsic;
+
+intrinsic RatPtsJInvs(ModEC, RatPts) -> SeqEnum
+  {Determines the images of the rational points}
+  jInvs := {* *};
+  jmap := ModEC`jmap;
+  for P in RatPts do
+    j := jmap(P);
+    if ModEC`Verbose eq true then
+      printf "Image of point %o is %o.\n",P,j;
+    end if;
+    Include(~jInvs, j);
+  end for;
+  return jInvs;
 end intrinsic;

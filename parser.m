@@ -332,8 +332,7 @@ for i in [1..#labelstodo] do
       end if;
     else
       IgnoreBase := false;
-      _, ind := Min([ Max([ Height(pts[i][j]) : j in [1..#Eltseq(pts[i])]]) : i in [1..#pts]]);
-      ModEC`BasePt := pts[ind];
+      ModEC`BasePt := pts[1];
     end if;  
   end if;
   try 

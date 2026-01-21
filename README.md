@@ -83,4 +83,6 @@ The main function <code>FindMapsToEC</code> works by finding a weight 2 cusp for
 
 - The file `labels_method_does_not_apply.m` contains a list of the labels of the 6859 level $\leq 70$ modular curves $X_{G}$ that do not admit a map to a rank zero elliptic curve over $\mathbb{Q}$.
 
+- The file `level21genus3map.m` contains a Magma script that computes a map from the genus 3 curve with label [21.84.3.a.1](https://beta.lmfdb.org/ModularCurve/Q/21.84.3.a.1/) to an ellitic curve $E/\mathbb{Q}(\sqrt{-3})$ that has rank zero and uses this to determine the $\mathbb{Q}(\sqrt{-3})$ points on 21.84.3.a.1.
+
 We welcome any questions, comments, or suggestions.

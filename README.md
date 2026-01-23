@@ -69,6 +69,8 @@ The main function <code>FindMapsToEC</code> works by finding a weight 2 cusp for
 
 ## Additional files for computations of $X_{G}(\mathbb{Q})$
 
+- The file `allpoints.zip` contains a Magma list of the 797581 curves whose rational points we determine. The first item in each pair is the LMFDB label, and the second item is the multiset $j(X_{G}(\mathbb{Q}))$.
+
 - The file `modcurvedata.txt` contains data extracted from the LMFDB about the 1034 minimal $X_{G}$ of level $\leq 70$ that admit a map to a rank zero elliptic curve.
 
 - The file `nfdata.m` contains a list of all rank zero elliptic curves $E$ whose conductor divides $N^{2}$ for some $N \leq 70$, together with the LMFDB label of the corresponding newform.

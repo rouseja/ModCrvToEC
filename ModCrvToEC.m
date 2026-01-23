@@ -619,13 +619,13 @@ MatchPtOnEC := function(EK, E, psiCF, a2, b2, decprec, RtsCache, k, Verbose)
   return ECpt2, RtsCache;
 end function;
 
-// We use a formula from Wikipedia for the Fourier expansion of the Weierstrass p-function:
+// We use a formula from https://dlmf.nist.gov/23.9 for the Fourier expansion of the Weierstrass p-function:
 // p(z) = (1/z^2) + z^2 * sum (d_k * z^(2*k))/k!.
 // Here d_0 = 3G_4, d_1 = 5G_6 and there's a recurrence relation given there. First, let's calculate the d's
 WeierstrassP := function(a, b, prec, zz)
   dlist := [-a/5,-b/7];
   for n in [0..Floor(prec/2)] do
-    // Compute d_(n+2) using recursion on Eisenstein series Wikipedia page. See also https://dlmf.nist.gov/23.9.
+    // Compute d_(n+2) using a formula from https://dlmf.nist.gov/23.9.
     newterm := ((3*n+6)/(2*n+9))*&+[ Binomial(n,k)*dlist[k+1]*dlist[n-k+1] : k in [0..n]];
     Append(~dlist,newterm);
   end for;
@@ -768,7 +768,7 @@ PickBestECs := function(ModEC)
     manin0 := [];
     iso := IsogenousCurves(EllipticCurve(ModEC`ainvlist[r]));
     for i in [1..ModEC`nummaps] do
-      // This code won't quite work properly if nummaps > 1.
+      // This part will need to be updated to support nummaps > 1.
       sgn, per := FindLatType(ModEC`C, ModEC`perlist[r][i]); 
       E, rr := IdentifyEC(iso, sgn, per);
       Append(~pers0,per);
@@ -897,8 +897,6 @@ FourierExpOfMaps := function(ModEC)
 
       xfourier := Evaluate(x0,intgoodcusp*scal);
       yfourier := Evaluate(y0,intgoodcusp*scal);
-
-      // We need to do some messing with this based on weiermap.
 
       dxfourier := &+[ (n/ModEC`MCR`widths[j])*Coefficient(xfourier,n)*zz^n : n in [Valuation(xfourier)..AbsolutePrecision(xfourier)-1]] + BigO(zz^AbsolutePrecision(xfourier));
       invdiff := dxfourier/(2*yfourier+ainvi[1]*xfourier+ainvi[3]);

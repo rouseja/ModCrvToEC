@@ -1358,20 +1358,22 @@ end function;
 
 // The optional parameter Verbose provides information about what is going on.
 
-// Step 1 - Reduce zero-dimensional scheme X mod primes that don't divide the level and count points mod p
+// Step A - Reduce zero-dimensional scheme X mod primes that don't divide the level and count points mod p
 // and count singular points.
 
-// Step 2 - If we find a prime with no singular points, then every point in X(Q_p) is a lift of
+// Step B - If we find a prime with no singular points, then every point in X(Q_p) is a lift of
 // a point in X(F_p). We lift the points mod p to points mod p^k for some k with p^k around 10^20. Then see if we get
 // a rational point on the scheme. This should find all the rational points.
 
-// Step 3 - Keep testing primes to see if we can find one for which we get equality
+// Step C - Keep testing primes to see if we can find one for which we get equality
 // in the number of mod p points and the rational points we have found. If we do, we're done.
 
-// Step 4 - In the event that we can't find a prime with no singular points, or
+// Step D - In the event that we can't find a prime with no singular points, or
 // we can't get equality in step 3, then fall back to Magma's built-in "RationalPoints" function, which
 // can involve expensive Groebner basis computations for ridiculous zero-dimensional schemes.
 
+// Step 13 - Determine the rational points on X_G
+// In our main run, this is called in the parser file.
 intrinsic RatPtsFromMaps(N::RngIntElt, mps::Tup : Verbose := false) -> SeqEnum
   {Pulls back points on a rank 0 elliptic curve to provably determine all rational points on the modular curve (the domain of the maps). This custom method uses reduction mod p, Hensel lifting, and rational reconstruction; for low genus curves, naive point-pullback also works.}
 
@@ -1563,6 +1565,10 @@ end intrinsic;
 // 3. Verbose - This defaults to false, but when set to true it provides a lot of information about what is going on in
 // each step of the computation. 
 
+// Step 1. Compute modular forms and a model of X_G
+// In our main run, this is called in the parser file.
+// After this function is called, we do Step 2: Test 
+// local solvability and find a rational base point.
 intrinsic InitializeModEC(N::RngIntElt, gens::SeqEnum : decprec := 5, precmult := 1, Verbose := false) -> Rec
   {Prepares a ModEC record that is used for FindMapsToEC and EllipticCurveQuoCandidates.}
   // This is the main record format we'll use.
@@ -1736,28 +1742,13 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
   end if;
   ModEC`multlist := multlist;
 
-/*
-  // Step 1 - Chose a rational base point. The current version of the code requires
-  // that it is able to find a rational point via a point search.
-  if not IgnoreBase then
-    ModEC`BasePt := ChooseBasePt(ModEC);
-    if Type(ModEC`BasePt) eq RngIntElt then
-      print "Error: A point search did not find a rational point on the modular curve.";
-      print "Case not yet implemented.";
-      return <>;
-    end if;
-  end if;  
-*/
-
-  // Step 2 - Determine a weight 2 cusp form(s) that are eigenforms of Hecke operators 
+  // Step 3 - Determine a weight 2 cusp form(s) that are eigenforms of Hecke operators 
   // with the desired Hecke eigenvalues. Then, compute the Fourier expansions of the 
   //cusp forms and pick the first nummaps of these that are best.
   ModEC`B := FindEigenformBasis(ModEC);
-
   ModEC`goodforms := GoodForms(ModEC);
   ModEC`psiCF := InfinitePlaces(ModEC`K)[1];
-
-  // Step 3 - For diagnostic purposes - see how big Fourier coefficients of goodforms are.
+  // For diagnostic purposes - see how big Fourier coefficients of goodforms are.
   mx := CheckFourierCoeffSizes(ModEC);
   if ModEC`Verbose then
     printf "True max = %o.\n",mx;
@@ -1769,8 +1760,10 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
   wrdlist := RandWords(ModEC`N, ModEC`gens, ModEC`Verbose);
   ModEC`perlist := [[[ComputePeriodAlongWord(ModEC,ModEC`goodforms[r][i],wrd) : wrd in wrdlist] : i in [1..nummaps]] : r in [1..#ainvlist]];
 
-  // Step 5 - Identify isogeny class for each form.
-  // Find EC for which period ratios are the same.
+  // Steps 5, 6, and 7:
+  // - Identify the period lattice for each form.
+  // - For each form, determine the optimal elliptic curve in each isogeny class.
+  // - Compute degrees of the maps to the elliptic curves and pick the one with smallest degree.
 
   pers, Elist, manin, Egiven, goodforms, ECdegmap := PickBestECs(ModEC);
   ModEC`pers := pers;
@@ -1780,18 +1773,18 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
   ModEC`goodforms := goodforms;
   ModEC`ECdegmap := ECdegmap;
 
-  // Step 6 - For each cusp and map, compute period integral from that cusp to the cusp at
+  // Step 8 - For each cusp and map, compute period integral from that cusp to the cusp at
   // infinity. Take the image of this under the isomorphism C/Lambda -> E(C) and compute
   // the image exactly as a point in E(Q(zeta_N)). We subtract by these points
   // when making the map to the elliptic curve.
 
   ModEC`translist := PerIntImages(ModEC);
 
-  // Step 7 - Tweak precision
+  // This part completes Step 7
 
   ModEC`preclist, ModEC`maxdegree := TweakPrec(ModEC);
 
-  // Step 8 - Fourier expansions of maps to elliptic curve. Use the result of step 5. 
+  // Step 9 - Fourier expansions of maps to elliptic curve. Use the result of Step 8. 
   
   xfourierlist, yfourierlist, newprec, RR := FourierExpOfMaps(ModEC);
   ModEC`xfourierlist := xfourierlist;
@@ -1799,7 +1792,7 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
   ModEC`newprec := newprec;
   ModEC`RR := RR;
 
-  // Step 9 - Realize x and y modular functions in function field of modular curve over Q(zeta_N)
+  // Step 10 - Realize x and y modular functions in function field of modular curve over Q(zeta_N)
   if not IgnoreBase then
     ecmaps, LMs, canring, cyclodegree := RealizeInFF(ModEC);
     ModEC`ecmaps := ecmaps;
@@ -1813,7 +1806,7 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
   // ring. The second thing in a pair is list of degree d monomials 
   // representing the elements.
 
-  // Step 10 - Compute images of basepoint and translate by that.
+  // Compute images of basepoint and translate by that.
   
   if not IgnoreBase then
     newxfourierlist, newyfourierlist, newprec2 := TransByBasePt(ModEC);
@@ -1822,11 +1815,11 @@ intrinsic FindMapsToEC(ModEC::Rec, ainvlist, multlist : nummaps := 1, IgnoreBase
     ModEC`newprec2 := newprec2;
   end if;  
 
-  // Step 11 - Do the linear algebra again, but this time do it over Q and not Q(zeta_n).
+  // Steps 11 and 12
+  // - Do the linear algebra again, but this time do it over Q and not Q(zeta_n).
+  // - Check that the maps we get actually work and return.
 
   ModEC`ecmaps := MapOverQ(ModEC);
-
-  // Step 12 - Check that the maps we get actually work and return.
   Map := map<ModEC`XG -> ModEC`Elist[1] | ModEC`ecmaps[1] : Check := false>;
 
   return <Map>;
@@ -1847,7 +1840,7 @@ end intrinsic;
 
 intrinsic ComputeJ(ModEC::Rec) -> Rec
   {Computes equations (from 1 to 5) from X_G to j-line}
-  // Step 1 - Check precision. If insufficient, ask for more.
+  // Step A - Check precision. If insufficient, ask for more.
   if ModEC`Verbose then
     printf "Computing j map.\n";
     tm := Realtime();
@@ -1871,7 +1864,7 @@ intrinsic ComputeJ(ModEC::Rec) -> Rec
   end if;
   preclist := ModEC`ModelMCR`prec;
   jpolys := [];
-  // Step 2 - Check to see what if any of the canonical ring has been built.
+  // Step B - Check to see what if any of the canonical ring has been built.
   polyring := PolynomialRing(Rationals(),#ModEC`genforms,"grevlex");
   if not (assigned ModEC`canring) then
     canring := <>;
@@ -1906,7 +1899,7 @@ intrinsic ComputeJ(ModEC::Rec) -> Rec
   while not done do
     d := d + 1;
     if #canring lt d then
-      // Step 3 - Build degree d piece of canonical ring
+      // Step C - Build degree d piece of canonical ring
       if ModEC`Verbose then
         printf "Generating degree %o piece of canonical ring.\n",d;
       end if;
@@ -1947,7 +1940,7 @@ intrinsic ComputeJ(ModEC::Rec) -> Rec
       bas := canring[d][2];
     end if;  
 
-    // Step 4 - linear algebra
+    // Step D - linear algebra
     if (d ge minjdeg) then
       if ModEC`Verbose then
         printf "Searching for jmap in degree %o.\n",d;

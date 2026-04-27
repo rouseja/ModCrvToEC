@@ -1,0 +1,961 @@
+There are 2 rational points on 6.6.1.a.1. The multiset of j-images is {* (1728 : 1), (1 : 0) *}. Total time taken was 0.590 sec.
+[
+[ 0, -1, 0, -2, 1 ]
+]
+[ 2 ]
+We found the map from X_G to the elliptic curve [ 0, -1, 0, -142, 701 ]. The total time taken was 6.390 sec.
+Choosing power series precision = 140.
+Creating model with power series precision 140.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 2.
+Nicefying 1x5112 matrix.
+Fourier coefficient size diagnostic.
+True max = 3.04138126514910984449984212260.
+Bound is = 111.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 1, 1, -23, -50 ]. The Manin constant is 1/37.
+Starting modular degree computation.
+Computing 38 periods.
+Analytic modular degree is 2.
+Time to compute analytic modular degree: 1.750
+Minimal modular degree is 2. Choosing elliptic curve [ 0, 1, 1, -23, -50 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 3 on elliptic curve.
+Point is (8 : -19 : 1).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 140, 4 ].
+precsum = 40, multiplier = 38/37, powerprec = 48.
+Setting powerprec = 48.
+New preclist = [ 48, 2 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 2.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 2.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 1, dimension of null space is 0.
+Null space time was 0.000 sec.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 2, dimension of null space is 3.
+Null space time was 0.000 sec.
+Null space vector 1 of 3 is good.
+Time to realize x,y over cyclotomic field: 0.010
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 0, 1, 1, -23, -50 ]. Base point (-2 : 2 : -3 : 1) maps to (0 : 1 : 0).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 27 x 3384.
+For d = 2, dimension of null space is 3.
+Nicefying 3x27 matrix.
+Checking map equation 1 of 3.
+Checking map equation 2 of 3.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 3.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Time to realize x,y over rationals: 0.010
+There are 4 rational points on 37.38.2.a.1. Total time taken was 15.820 sec.
+Choosing power series precision = 259.
+Creating model with power series precision 259.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 3.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 7.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Trying to find Hecke matrix for p = 17.
+Trying to find Hecke matrix for p = 19.
+Trying to find Hecke matrix for p = 23.
+Trying to find Hecke matrix for p = 29.
+Trying to find Hecke matrix for p = 31.
+Trying to find Hecke matrix for p = 37.
+Trying to find Hecke matrix for p = 41.
+Trying to find Hecke matrix for p = 43.
+Trying to find Hecke matrix for p = 47.
+Representation is not unique for Hecke operator T_47. Increasing precision may help.
+Representation is not unique for Hecke operator T_47. Increasing precision may help.
+Representation is not unique for Hecke operator T_47. Increasing precision may help.
+Trying to find Hecke matrix for p = 53.
+Representation is not unique for Hecke operator T_53. Increasing precision may help.
+Representation is not unique for Hecke operator T_53. Increasing precision may help.
+Representation is not unique for Hecke operator T_53. Increasing precision may help.
+Trying to find Hecke matrix for p = 59.
+Representation is not unique for Hecke operator T_59. Increasing precision may help.
+Representation is not unique for Hecke operator T_59. Increasing precision may help.
+Representation is not unique for Hecke operator T_59. Increasing precision may help.
+Trying to find Hecke matrix for p = 61.
+Representation is not unique for Hecke operator T_61. Increasing precision may help.
+Representation is not unique for Hecke operator T_61. Increasing precision may help.
+Representation is not unique for Hecke operator T_61. Increasing precision may help.
+Trying to find Hecke matrix for p = 67.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Trying to find Hecke matrix for p = 71.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Trying to find Hecke matrix for p = 73.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Trying to find Hecke matrix for p = 79.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Trying to find Hecke matrix for p = 83.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Trying to find Hecke matrix for p = 89.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Trying to find Hecke matrix for p = 97.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Trying to find Hecke matrix for p = 101.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Trying to find Hecke matrix for p = 103.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Trying to find Hecke matrix for p = 107.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Trying to find Hecke matrix for p = 109.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Trying to find Hecke matrix for p = 113.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Trying to find Hecke matrix for p = 127.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Trying to find Hecke matrix for p = 131.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Trying to find Hecke matrix for p = 137.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Trying to find Hecke matrix for p = 139.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Trying to find Hecke matrix for p = 149.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Trying to find Hecke matrix for p = 151.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Trying to find Hecke matrix for p = 157.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Trying to find Hecke matrix for p = 163.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Trying to find Hecke matrix for p = 167.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Trying to find Hecke matrix for p = 173.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Trying to find Hecke matrix for p = 179.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Trying to find Hecke matrix for p = 181.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Trying to find Hecke matrix for p = 191.
+Representation is not unique for Hecke operator T_191. Increasing precision may help.
+Representation is not unique for Hecke operator T_191. Increasing precision may help.
+Representation is not unique for Hecke operator T_191. Increasing precision may help.
+Trying to find Hecke matrix for p = 193.
+Representation is not unique for Hecke operator T_193. Increasing precision may help.
+Representation is not unique for Hecke operator T_193. Increasing precision may help.
+Representation is not unique for Hecke operator T_193. Increasing precision may help.
+Trying to find Hecke matrix for p = 197.
+Representation is not unique for Hecke operator T_197. Increasing precision may help.
+Representation is not unique for Hecke operator T_197. Increasing precision may help.
+Representation is not unique for Hecke operator T_197. Increasing precision may help.
+Trying to find Hecke matrix for p = 199.
+Representation is not unique for Hecke operator T_199. Increasing precision may help.
+Representation is not unique for Hecke operator T_199. Increasing precision may help.
+Representation is not unique for Hecke operator T_199. Increasing precision may help.
+Trying to find Hecke matrix for p = 211.
+Representation is not unique for Hecke operator T_211. Increasing precision may help.
+Representation is not unique for Hecke operator T_211. Increasing precision may help.
+Representation is not unique for Hecke operator T_211. Increasing precision may help.
+Trying to find Hecke matrix for p = 223.
+Representation is not unique for Hecke operator T_223. Increasing precision may help.
+Representation is not unique for Hecke operator T_223. Increasing precision may help.
+Representation is not unique for Hecke operator T_223. Increasing precision may help.
+Trying to find Hecke matrix for p = 227.
+Representation is not unique for Hecke operator T_227. Increasing precision may help.
+Representation is not unique for Hecke operator T_227. Increasing precision may help.
+Representation is not unique for Hecke operator T_227. Increasing precision may help.
+Trying to find Hecke matrix for p = 229.
+Representation is not unique for Hecke operator T_229. Increasing precision may help.
+Representation is not unique for Hecke operator T_229. Increasing precision may help.
+Representation is not unique for Hecke operator T_229. Increasing precision may help.
+Trying to find Hecke matrix for p = 233.
+Representation is not unique for Hecke operator T_233. Increasing precision may help.
+Representation is not unique for Hecke operator T_233. Increasing precision may help.
+Representation is not unique for Hecke operator T_233. Increasing precision may help.
+Trying to find Hecke matrix for p = 239.
+Representation is not unique for Hecke operator T_239. Increasing precision may help.
+Representation is not unique for Hecke operator T_239. Increasing precision may help.
+Representation is not unique for Hecke operator T_239. Increasing precision may help.
+Trying to find Hecke matrix for p = 241.
+Representation is not unique for Hecke operator T_241. Increasing precision may help.
+Representation is not unique for Hecke operator T_241. Increasing precision may help.
+Representation is not unique for Hecke operator T_241. Increasing precision may help.
+Trying to find Hecke matrix for p = 251.
+Representation is not unique for Hecke operator T_251. Increasing precision may help.
+Representation is not unique for Hecke operator T_251. Increasing precision may help.
+Representation is not unique for Hecke operator T_251. Increasing precision may help.
+Trying to find Hecke matrix for p = 257.
+Representation is not unique for Hecke operator T_257. Increasing precision may help.
+Representation is not unique for Hecke operator T_257. Increasing precision may help.
+Representation is not unique for Hecke operator T_257. Increasing precision may help.
+Candidate found: [ 0, 0, 0, 4, 0 ]
+Multiplicity: 2
+Candidate found: [ 0, 0, 0, -4, 0 ]
+Multiplicity: 1
+The elliptic curve [ 0, 0, 0, 4, 0 ] has rank 0.
+The elliptic curve [ 0, 0, 0, -4, 0 ] has rank 0.
+Trying to find Hecke matrix for p = 3.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 7.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Nicefying 2x12352 matrix.
+Nicefying 1x12352 matrix.
+Fourier coefficient size diagnostic.
+True max = 1.14285714285714285714285714286.
+Bound is = 192.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 0, 4, 0 ]. The Manin constant is 1/32.
+Starting modular degree computation.
+Computing 96 periods.
+Analytic modular degree is 2.
+Time to compute analytic modular degree: 4.870
+Best elliptic curve 1 is [ 0, 0, 0, -4, 0 ]. The Manin constant is 1/64.
+Starting modular degree computation.
+Computing 96 periods.
+Analytic modular degree is 2.
+Time to compute analytic modular degree: 6.790
+Minimal modular degree is 2. Choosing elliptic curve [ 0, 0, 0, 4, 0 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 4 on elliptic curve.
+Point is (2 : 4 : 1).
+Image of cusp 3 has order 2 on elliptic curve.
+Point is (0 : 0 : 1).
+Image of cusp 4 has order 4 on elliptic curve.
+Point is (-2 : 4*z^16 : 1).
+Image of cusp 5 has order 2 on elliptic curve.
+Point is (-2*z^16 : 0 : 1).
+Image of cusp 6 has order 4 on elliptic curve.
+Point is (-2 : -4*z^16 : 1).
+Image of cusp 7 has order 4 on elliptic curve.
+Point is (2 : -4 : 1).
+Image of cusp 8 has order 2 on elliptic curve.
+Point is (2*z^16 : 0 : 1).
+Image of cusp 9 has order 4 on elliptic curve.
+Point is (2 : -4 : 1).
+Image of cusp 10 has order 4 on elliptic curve.
+Point is (-2 : -4*z^16 : 1).
+Image of cusp 11 has order 4 on elliptic curve.
+Point is (-2 : 4*z^16 : 1).
+Image of cusp 12 has order 4 on elliptic curve.
+Point is (2 : 4 : 1).
+Tweaking precision.
+Guaranteed to find map in degree 3.
+Old preclist = [ 259, 5, 65, 5, 17, 5, 5, 17, 5, 5, 5, 5 ].
+precsum = 146, multiplier = 3/2, powerprec = 107.
+Setting powerprec = 107.
+New preclist = [ 107, 2, 27, 2, 7, 2, 2, 7, 2, 2, 2, 2 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 5 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 6 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 7 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 8 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 9 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 10 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 11 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 12 of 12.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 2, dimension of null space is 1.
+Null space time was 0.000 sec.
+Null space vector 1 of 1 is good.
+Time to realize x,y over cyclotomic field: 0.010
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 0, 0, 0, 4, 0 ]. Base point (-1 : -1 : 1) maps to (2 : -4 : 1).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 18 x 7552.
+For d = 2, dimension of null space is 1.
+Nicefying 1x18 matrix.
+Checking map equation 1 of 1.
+Time to realize x,y over rationals: 0.020
+There are 4 rational points on 64.96.3.b.1. Total time taken was 36.230 sec.
+Choosing power series precision = 150.
+Creating model with power series precision 150.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 2.
+Nicefying 1x7680 matrix.
+Fourier coefficient size diagnostic.
+True max = 1.80277563773199464655961063374.
+Bound is = 117.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 1, 1, 0, 1, 0 ]. The Manin constant is 1/39.
+Starting modular degree computation.
+Computing 84 periods.
+Analytic modular degree is 2.
+Time to compute analytic modular degree: 53.670
+Minimal modular degree is 2. Choosing elliptic curve [ 1, 1, 0, 1, 0 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 2 on elliptic curve.
+Point is (0 : 0 : 1).
+Image of cusp 3 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 4 has order 2 on elliptic curve.
+Point is (0 : 0 : 1).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 150, 150, 12, 12 ].
+precsum = 86, multiplier = 28/13, powerprec = 49.
+Setting powerprec = 49.
+New preclist = [ 49, 49, 4, 4 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 4.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 1, dimension of null space is 1.
+Null space time was 0.000 sec.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 2, dimension of null space is 6.
+Null space time was 0.010 sec.
+Null space vector 1 of 6 is good.
+Time to realize x,y over cyclotomic field: 0.040
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 1, 1, 0, 1, 0 ]. Base point (0 : 0 : -1 : -1 : 1) maps to (0 : 0 : 1).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 1.
+Matrix size is 15 x 4224.
+For d = 1, dimension of null space is 1.
+Nicefying 1x15 matrix.
+Checking map equation 1 of 1.
+Time to realize x,y over rationals: 0.020
+There are 4 rational points on 39.84.5.b.1.
+Computing j map.
+Increasing modular form precision to 1100 to compute j-map.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating degree 1 piece of canonical ring.
+Generating degree 2 piece of canonical ring.
+Generating degree 3 piece of canonical ring.
+Generating degree 4 piece of canonical ring.
+Generating degree 5 piece of canonical ring.
+Generating degree 6 piece of canonical ring.
+Generating degree 7 piece of canonical ring.
+Generating degree 8 piece of canonical ring.
+Generating degree 9 piece of canonical ring.
+Generating degree 10 piece of canonical ring.
+Generating degree 11 piece of canonical ring.
+Searching for jmap in degree 11.
+preclist = [ 1100, 1100, 85, 85 ].
+Matrix size is 168 x 56880.
+For d = 11, dimension of null space is 2.
+Nicefying 2x168 matrix.
+Checking map equation 1 of 2.
+Checking map equation 2 of 2.
+Time to compute j map: 375.500
+Image of point (0 : 0 : -1 : -1 : 1) is (1 : 0).
+Image of point (0 : 1 : 0 : 0 : 1) is (1 : 0).
+Image of point (0 : 0 : 0 : 0 : 1) is (1 : 0).
+Image of point (0 : 1 : 1 : 1 : 1) is (1 : 0).
+The images on the j-line are {* (1 : 0)^^4 *}. Total time taken was 444.520 sec.
+Choosing power series precision = 136.
+Creating model with power series precision 136.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 5.
+Nicefying 1x4860 matrix.
+Fourier coefficient size diagnostic.
+True max = 3.22307481220322784601402565873.
+Bound is = 108.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 0, -27, -918 ]. The Manin constant is 1/216.
+Starting modular degree computation.
+Computing 108 periods.
+Analytic modular degree is 6.
+Time to compute analytic modular degree: 19.730
+Minimal modular degree is 6. Choosing elliptic curve [ 0, 0, 0, -27, -918 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 3 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Tweaking precision.
+Guaranteed to find map in degree 3.
+Old preclist = [ 136, 136, 136 ].
+precsum = 164, multiplier = 3, powerprec = 64.
+Setting powerprec = 64.
+New preclist = [ 64, 64, 64 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 3.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 3.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 3.
+Realizing x,y over rationals.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.010.
+Generating rational canonical ring.
+Generating degree 1 piece of canonical ring.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 45 x 4536.
+For d = 2, dimension of null space is 0.
+Generating degree 3 piece of canonical ring.
+Searching for map 1 of 1 in degree 3.
+Matrix size is 75 x 4536.
+For d = 3, dimension of null space is 7.
+Nicefying 7x75 matrix.
+Checking map equation 1 of 5.
+Checking map equation 2 of 5.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 5.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Checking map equation 4 of 5.
+Checking compatability of map equation 1 and 4.
+Checking compatability of map equation 2 and 4.
+Checking compatability of map equation 3 and 4.
+Checking map equation 5 of 5.
+Checking compatability of map equation 1 and 5.
+Checking compatability of map equation 2 and 5.
+Checking compatability of map equation 3 and 5.
+Checking compatability of map equation 4 and 5.
+Time to realize x,y over rationals: 1.650
+There are 3 rational points on 36.108.6.g.1. Total time taken was 31.060 sec.
+Choosing power series precision = 189.
+Creating model with power series precision 189.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 7.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Trying to find Hecke matrix for p = 17.
+Trying to find Hecke matrix for p = 19.
+Trying to find Hecke matrix for p = 23.
+Trying to find Hecke matrix for p = 29.
+Trying to find Hecke matrix for p = 31.
+Trying to find Hecke matrix for p = 37.
+Trying to find Hecke matrix for p = 41.
+Trying to find Hecke matrix for p = 43.
+Trying to find Hecke matrix for p = 47.
+Trying to find Hecke matrix for p = 53.
+Trying to find Hecke matrix for p = 59.
+Trying to find Hecke matrix for p = 61.
+Trying to find Hecke matrix for p = 67.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Representation is not unique for Hecke operator T_67. Increasing precision may help.
+Trying to find Hecke matrix for p = 71.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Representation is not unique for Hecke operator T_71. Increasing precision may help.
+Trying to find Hecke matrix for p = 73.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Representation is not unique for Hecke operator T_73. Increasing precision may help.
+Trying to find Hecke matrix for p = 79.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Representation is not unique for Hecke operator T_79. Increasing precision may help.
+Trying to find Hecke matrix for p = 83.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Representation is not unique for Hecke operator T_83. Increasing precision may help.
+Trying to find Hecke matrix for p = 89.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Representation is not unique for Hecke operator T_89. Increasing precision may help.
+Trying to find Hecke matrix for p = 97.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Representation is not unique for Hecke operator T_97. Increasing precision may help.
+Trying to find Hecke matrix for p = 101.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Representation is not unique for Hecke operator T_101. Increasing precision may help.
+Trying to find Hecke matrix for p = 103.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Representation is not unique for Hecke operator T_103. Increasing precision may help.
+Trying to find Hecke matrix for p = 107.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Representation is not unique for Hecke operator T_107. Increasing precision may help.
+Trying to find Hecke matrix for p = 109.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Representation is not unique for Hecke operator T_109. Increasing precision may help.
+Trying to find Hecke matrix for p = 113.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Representation is not unique for Hecke operator T_113. Increasing precision may help.
+Trying to find Hecke matrix for p = 127.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Representation is not unique for Hecke operator T_127. Increasing precision may help.
+Trying to find Hecke matrix for p = 131.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Representation is not unique for Hecke operator T_131. Increasing precision may help.
+Trying to find Hecke matrix for p = 137.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Representation is not unique for Hecke operator T_137. Increasing precision may help.
+Trying to find Hecke matrix for p = 139.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Representation is not unique for Hecke operator T_139. Increasing precision may help.
+Trying to find Hecke matrix for p = 149.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Representation is not unique for Hecke operator T_149. Increasing precision may help.
+Trying to find Hecke matrix for p = 151.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Representation is not unique for Hecke operator T_151. Increasing precision may help.
+Trying to find Hecke matrix for p = 157.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Representation is not unique for Hecke operator T_157. Increasing precision may help.
+Trying to find Hecke matrix for p = 163.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Representation is not unique for Hecke operator T_163. Increasing precision may help.
+Trying to find Hecke matrix for p = 167.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Representation is not unique for Hecke operator T_167. Increasing precision may help.
+Trying to find Hecke matrix for p = 173.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Representation is not unique for Hecke operator T_173. Increasing precision may help.
+Trying to find Hecke matrix for p = 179.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Representation is not unique for Hecke operator T_179. Increasing precision may help.
+Trying to find Hecke matrix for p = 181.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Representation is not unique for Hecke operator T_181. Increasing precision may help.
+Candidate found: [ 0, 0, 1, 0, -7 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 0, 12, 8 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 1, 1, -1 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 0, -6, 8 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 1, -5, 5 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 0, 3, -1 ]
+Multiplicity: 1
+Candidate found: [ 1, -1, 1, 4, -1 ]
+Multiplicity: 1
+Candidate found: [ 0, 0, 0, -9, 9 ]
+Multiplicity: 2
+The elliptic curve [ 0, 0, 1, 0, -7 ] has rank 0.
+The elliptic curve [ 1, -1, 0, 12, 8 ] has rank 0.
+The elliptic curve [ 1, -1, 1, 1, -1 ] has rank 0.
+The elliptic curve [ 1, -1, 0, -6, 8 ] has rank 1.
+The elliptic curve [ 1, -1, 1, -5, 5 ] has rank 0.
+The elliptic curve [ 1, -1, 0, 3, -1 ] has rank 0.
+The elliptic curve [ 1, -1, 1, 4, -1 ] has rank 0.
+The elliptic curve [ 0, 0, 0, -9, 9 ] has rank 1.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 7.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Trying to find Hecke matrix for p = 17.
+Trying to find Hecke matrix for p = 19.
+Trying to find Hecke matrix for p = 23.
+Trying to find Hecke matrix for p = 29.
+Trying to find Hecke matrix for p = 31.
+Trying to find Hecke matrix for p = 37.
+Trying to find Hecke matrix for p = 41.
+Trying to find Hecke matrix for p = 43.
+Trying to find Hecke matrix for p = 47.
+Nicefying 1x13536 matrix.
+Nicefying 1x13536 matrix.
+Nicefying 1x13536 matrix.
+Nicefying 1x13536 matrix.
+Nicefying 1x13536 matrix.
+Nicefying 1x13536 matrix.
+Fourier coefficient size diagnostic.
+True max = 3.82598428181761487804922865745.
+Bound is = 54.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 1, 0, -7 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 9.
+Time to compute analytic modular degree: 10.550
+Best elliptic curve 1 is [ 1, -1, 0, 12, 8 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 18.
+Time to compute analytic modular degree: 18.150
+Best elliptic curve 1 is [ 1, -1, 1, -29, -53 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 18.
+Time to compute analytic modular degree: 18.170
+Best elliptic curve 1 is [ 1, -1, 1, 25, 1 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 18.
+Time to compute analytic modular degree: 17.560
+Best elliptic curve 1 is [ 1, -1, 0, 3, -1 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 6.
+Time to compute analytic modular degree: 17.510
+Best elliptic curve 1 is [ 1, -1, 1, -56, -161 ]. The Manin constant is 1/54.
+Starting modular degree computation.
+Computing 216 periods.
+Analytic modular degree is 36.
+Time to compute analytic modular degree: 15.670
+Minimal modular degree is 6. Choosing elliptic curve [ 1, -1, 0, 3, -1 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 7 on elliptic curve.
+Point is (z^5 - 2*z^4 + z^2 + z - 2 : 4*z^5 + z^4 - 6*z^3 - 5*z^2 + 4*z + 4 : 1).
+Image of cusp 3 has order 21 on elliptic curve.
+Point is (z^5 + z^4 + z^2 - 2*z + 1 : z^5 + z^4 - 3*z^3 + z^2 - 2*z + 1 : 1).
+Image of cusp 4 has order 7 on elliptic curve.
+Point is (z^5 + z^4 - 2*z^2 - 2*z - 2 : 4*z^5 + 4*z^4 + 6*z^3 + z^2 + z - 2 : 1).
+Image of cusp 5 has order 21 on elliptic curve.
+Point is (z^5 + z^4 + z^2 - 2*z + 1 : z^5 + z^4 - 3*z^3 + z^2 - 2*z + 1 : 1).
+Image of cusp 6 has order 21 on elliptic curve.
+Point is (z^5 + z^4 + z^2 - 2*z + 1 : z^5 + z^4 - 3*z^3 + z^2 - 2*z + 1 : 1).
+Image of cusp 7 has order 7 on elliptic curve.
+Point is (z^5 - 2*z^4 + z^2 + z - 2 : -5*z^5 + z^4 + 6*z^3 + 4*z^2 - 5*z - 2 : 1).
+Image of cusp 8 has order 7 on elliptic curve.
+Point is (z^5 + z^4 - 2*z^2 - 2*z - 2 : -5*z^5 - 5*z^4 - 6*z^3 + z^2 + z + 4 : 1).
+Image of cusp 9 has order 7 on elliptic curve.
+Point is (-2*z^5 + z^4 + z^2 + z - 2 : z^5 - 5*z^4 + 6*z^3 - 5*z^2 + 4*z - 2 : 1).
+Image of cusp 10 has order 7 on elliptic curve.
+Point is (z^5 - 2*z^4 + z^2 + z - 2 : -5*z^5 + z^4 + 6*z^3 + 4*z^2 - 5*z - 2 : 1).
+Image of cusp 11 has order 7 on elliptic curve.
+Point is (z^5 - 2*z^4 + z^2 + z - 2 : -5*z^5 + z^4 + 6*z^3 + 4*z^2 - 5*z - 2 : 1).
+Image of cusp 12 has order 7 on elliptic curve.
+Point is (-2*z^5 + z^4 + z^2 + z - 2 : z^5 + 4*z^4 - 6*z^3 + 4*z^2 - 5*z + 4 : 1).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 189, 189, 189, 189, 189, 189, 189, 189, 189, 189, 189, 189 ].
+precsum = 218, multiplier = 12, powerprec = 28.
+Setting powerprec = 28.
+New preclist = [ 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 5 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 6 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 7 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 8 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 9 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 10 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 11 of 12.
+Computing Fourier expansions of x and y modular functions at cusp 12 of 12.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.010.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 1, dimension of null space is 0.
+Null space time was 0.010 sec.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 2, dimension of null space is 12.
+Null space time was 0.530 sec.
+Null space vector 1 of 12 is good.
+Time to realize x,y over cyclotomic field: 0.690
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 1, -1, 0, 3, -1 ]. Base point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0 : 1) maps to (z^5 - 2*z^4 - 2*z^2 + z + 1 : z^5 - 2*z^4 + 3*z^3 - 2*z^2 + z - 2 : 1).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 90 x 3456.
+For d = 2, dimension of null space is 12.
+Nicefying 12x90 matrix.
+Checking map equation 1 of 5.
+Checking map equation 2 of 5.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 5.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Checking map equation 4 of 5.
+Checking compatability of map equation 1 and 4.
+Checking compatability of map equation 2 and 4.
+Checking compatability of map equation 3 and 4.
+Checking map equation 5 of 5.
+Checking compatability of map equation 1 and 5.
+Checking compatability of map equation 2 and 5.
+Checking compatability of map equation 3 and 5.
+Checking compatability of map equation 4 and 5.
+Time to realize x,y over rationals: 0.300
+There are 4 rational points on 18.216.11.c.1. Total time taken was 126.030 sec.
+> quit;
+
+Total time: 660.759 seconds, Total memory usage: 976.12MB

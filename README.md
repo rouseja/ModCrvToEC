@@ -61,7 +61,7 @@ RatPtsJInvs(ModEC,ratpts);
 ```
 shows that $X_{G}(\mathbb{Q})$ contains exactly four points, two of which map to $j = 0$ and two of which map to $j = 8000$.
 
-For additional examples, look at the file [Examples.m](https://github.com/rouseja/ModCrvToEC/blob/main/Examples.m) in this repo.
+For additional examples, look at the file [Examples.m](https://github.com/rouseja/ModCrvToEC/blob/main/Examples.m) in this repo. The output produced by this script is in the file [Examples.out](https://github.com/rouseja/ModCrvToEC/blob/main/Examples.out).
 
 ### Overview of the algorithm
 

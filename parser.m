@@ -2,7 +2,7 @@
 for modular curves X_G with level <= 70 and a map to a rank zero elliptic curve.
 
 Here are the files needed:
-ModCrvToEC.m - the main script
+ModCrvToECv2.m - the main script, version 2
 modcurvedata.txt - Data from the LMFDB about the 1034 X_G's
 nfdata.m - A list pairing a LMFDB newform label with an elliptic curve.
 Modular.m - David Zywina's code for working with modular curves (available on Github at http://github.com/davidzywina/Modular/main)
@@ -14,7 +14,10 @@ ModCrvFiles/ - Download the file "LMFDBmodels.zip" and unzip the contests into a
 called ModCrvFiles
 */
 
-SetLogFile("mainoutput.out");
+SetLogFile("rerunlogfile1.out");
+
+sd := GetSeed();
+printf "Magma seed is %o.\n",sd;
 
 D := GetCurrentDirectory();
 AttachSpec("Modular.spec");
@@ -22,7 +25,7 @@ ChangeDirectory(D);
 ChangeDirectory("cmpointcount");
 load "newcmpointcount.m";
 ChangeDirectory(D);
-Attach("ModCrvToEC.m");
+Attach("ModCrvToECv2.m");
 
 str := Read("modcurvedata.txt");
 lines := Split(str,"\n");
@@ -316,7 +319,7 @@ for i in [1..#labelstodo] do
   Mults := [m[2] : m in ModCrv`newforms];
   // When the genus <= 29, do local testing.
   if ModCrv`genus le 29 then
-    pts := PointSearch(ModEC`XG,100 : OnlyOne := true);
+    pts := PointSearch(ModEC`XG,200 : OnlyOne := true);
     if #pts eq 0 then
       PolZ<[x]>:=PolynomialRing(Integers(),Rank(Parent(ModEC`MCR`psi[1])));
       psi:=[PolZ!f: f in ModEC`MCR`psi];
@@ -338,9 +341,9 @@ for i in [1..#labelstodo] do
   try 
   if ModCrv`pointless eq "False" then
     // Run the main function - Find a map to an elliptic curve.
-    Map := FindMapsToEC(ModEC, Iso, Mults : IgnoreBase := IgnoreBase);
+    ModEC := FindMapsToEC(ModEC, Iso, Mults : IgnoreBase := IgnoreBase);
     // Pull back the rational points to determine X_G(Q).
-    allratpts := RatPtsFromMaps(ModCrv`level, Map : Verbose := true);
+    allratpts := RatPtsFromMaps(ModEC : Verbose := true);
     ModCrv`NumRatPts := #allratpts;
   end if;  
   // Count rational cusps and CM points.
@@ -391,4 +394,3 @@ for i in [1..#labelstodo] do
     printf "Time before error was %o sec.\n",endtim;
   end try;
 end for;
-

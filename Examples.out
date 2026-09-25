@@ -1,9 +1,70 @@
-There are 2 rational points on 6.6.1.a.1. The multiset of j-images is {* (1728 : 1), (1 : 0) *}. Total time taken was 0.590 sec.
+Choosing power series precision = 18.
+Creating model with power series precision 18.
+Model found. Now increasing precision.
+Precision increase done.
+Nicefying 1x34 matrix.
+Fourier coefficient size diagnostic.
+True max = 1.00000000000000000000000000000.
+Bound is = 18.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 0, 0, -27 ]. The Manin constant is 1/3.
+Starting modular degree computation.
+Computing 6 periods.
+Analytic modular degree is 1.
+Time to compute analytic modular degree: 0.000
+Minimal modular degree is 1. Choosing elliptic curve [ 0, 0, 0, 0, -27 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 18 ].
+precsum = 8, multiplier = 1, powerprec = 17.
+Setting powerprec = 17.
+New preclist = [ 17 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 1.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 1, dimension of null space is 1.
+Null space time was 0.000 sec.
+Null space vector 1 of 1 is good.
+Time to realize x,y over cyclotomic field: 0.000
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 0, 0, 0, 0, -27 ]. Base point (0 : 1 : 0) maps to (0 : 1 : 0).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 1.
+Matrix size is 9 x 64.
+For d = 1, dimension of null space is 1.
+Null space time was 0.000 sec.
+Nicefying 1x9 matrix.
+Checking map equation 1 of 1.
+Time to realize x,y over rationals: 0.000
+Computing j map.
+Increasing modular form precision to 63 to compute j-map.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating degree 1 piece of canonical ring.
+Generating degree 2 piece of canonical ring.
+Searching for jmap in degree 2.
+preclist = [ 63 ].
+Matrix size is 12 x 126.
+For d = 2, dimension of null space is 1.
+Nicefying 1x12 matrix.
+Checking map equation 1 of 1.
+Time to compute j map: 0.030
+Image of point (0 : 1 : 0) is (1 : 0).
+Image of point (-1/12 : 0 : 1) is (1728 : 1).
+There are 2 rational points on 6.6.1.a.1. The multiset of j-images is {* (1728 : 1), (1 : 0) *}. Total time taken was 0.530 sec.
 [
 [ 0, -1, 0, -2, 1 ]
 ]
 [ 2 ]
-We found the map from X_G to the elliptic curve [ 0, -1, 0, -142, 701 ]. The total time taken was 6.390 sec.
+We found the map from X_G to the elliptic curve [ 0, -1, 0, -142, 701 ]. The total time taken was 6.570 sec.
 Choosing power series precision = 140.
 Creating model with power series precision 140.
 Model found. Now increasing precision.
@@ -18,7 +79,7 @@ Best elliptic curve 1 is [ 0, 1, 1, -23, -50 ]. The Manin constant is 1/37.
 Starting modular degree computation.
 Computing 38 periods.
 Analytic modular degree is 2.
-Time to compute analytic modular degree: 1.750
+Time to compute analytic modular degree: 1.740
 Minimal modular degree is 2. Choosing elliptic curve [ 0, 1, 1, -23, -50 ].
 Image of cusp 1 has order 1 on elliptic curve.
 Point is (0 : 1 : 0).
@@ -44,16 +105,17 @@ Null space time was 0.000 sec.
 Generating degree 2 piece of canonical ring.
 Searching for map 1 of 1.
 For d = 2, dimension of null space is 3.
-Null space time was 0.000 sec.
+Null space time was 0.010 sec.
 Null space vector 1 of 3 is good.
 Time to realize x,y over cyclotomic field: 0.010
 Starting cyclotomic map evaluation.
-Map 1 goes from XG to curve [ 0, 1, 1, -23, -50 ]. Base point (-2 : 2 : -3 : 1) maps to (0 : 1 : 0).
+Map 1 goes from XG to curve [ 0, 1, 1, -23, -50 ]. Base point (1 : 0 : -1 : 1) maps to (8 : 18 : 1).
 Realizing x,y over rationals.
 Generating rational canonical ring.
 Searching for map 1 of 1 in degree 2.
-Matrix size is 27 x 3384.
+Matrix size is 27 x 3168.
 For d = 2, dimension of null space is 3.
+Null space time was 0.000 sec.
 Nicefying 3x27 matrix.
 Checking map equation 1 of 3.
 Checking map equation 2 of 3.
@@ -62,7 +124,42 @@ Checking map equation 3 of 3.
 Checking compatability of map equation 1 and 3.
 Checking compatability of map equation 2 and 3.
 Time to realize x,y over rationals: 0.010
-There are 4 rational points on 37.38.2.a.1. Total time taken was 15.820 sec.
+Pulling back points
+Map to elliptic curve has 3 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 0, 1, 1, -23, -50 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (8 : -19 : 1).
+Beginning test of p = 3.
+Tested p = 3. There are 2 points, of which 0 are singular.
+Lifting mod p point (2 : 0 : 0 : 1).
+We found a rational point (-1 : 0 : 0 : 1).
+Lifting mod p point (2 : 1 : 1 : 0).
+We found a rational point (-2/3 : 2/3 : -1/3 : 1).
+Mod 3 there are 2 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_3) is bijective. We're done!
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 3.
+Tested p = 3. There are 2 points, of which 0 are singular.
+Lifting mod p point (1 : 0 : 2 : 1).
+We found a rational point (1 : 0 : -1 : 1).
+Lifting mod p point (2 : 1 : 1 : 1).
+We found a rational point (-79/106 : 37/106 : 47/212 : 1).
+Mod 3 there are 2 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_3) is bijective. We're done!
+Pulling back point (8 : 18 : 1).
+Beginning test of p = 3.
+Tested p = 3. There are 2 points, of which 0 are singular.
+Lifting mod p point (1 : 1 : 1 : 1).
+We didn't find a rational point.
+Lifting mod p point (1 : 1 : 2 : 1).
+We didn't find a rational point.
+Mod 3 there are 2 points, all of which are non-singular.
+Mod 5 there are 0 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_5) is bijective. We're done!
+There are 4 rational points on the given modular curve.
+They are [ (1 : 0 : -1 : 1), (-79/106 : 37/106 : 47/212 : 1), (-1 : 0 : 0 : 1), (-2/3 : 2/3 : -1/3 : 1) ].
+Time to pull back points: 0.030
+There are 4 rational points on 37.38.2.a.1. Total time taken was 14.500 sec.
 Choosing power series precision = 259.
 Creating model with power series precision 259.
 Model found. Now increasing precision.
@@ -265,12 +362,12 @@ Best elliptic curve 1 is [ 0, 0, 0, 4, 0 ]. The Manin constant is 1/32.
 Starting modular degree computation.
 Computing 96 periods.
 Analytic modular degree is 2.
-Time to compute analytic modular degree: 4.870
+Time to compute analytic modular degree: 4.890
 Best elliptic curve 1 is [ 0, 0, 0, -4, 0 ]. The Manin constant is 1/64.
 Starting modular degree computation.
 Computing 96 periods.
 Analytic modular degree is 2.
-Time to compute analytic modular degree: 6.790
+Time to compute analytic modular degree: 7.160
 Minimal modular degree is 2. Choosing elliptic curve [ 0, 0, 0, 4, 0 ].
 Image of cusp 1 has order 1 on elliptic curve.
 Point is (0 : 1 : 0).
@@ -325,7 +422,7 @@ Searching for map 1 of 1.
 For d = 2, dimension of null space is 1.
 Null space time was 0.000 sec.
 Null space vector 1 of 1 is good.
-Time to realize x,y over cyclotomic field: 0.010
+Time to realize x,y over cyclotomic field: 0.000
 Starting cyclotomic map evaluation.
 Map 1 goes from XG to curve [ 0, 0, 0, 4, 0 ]. Base point (-1 : -1 : 1) maps to (2 : -4 : 1).
 Realizing x,y over rationals.
@@ -333,10 +430,197 @@ Generating rational canonical ring.
 Searching for map 1 of 1 in degree 2.
 Matrix size is 18 x 7552.
 For d = 2, dimension of null space is 1.
+Null space time was 0.000 sec.
 Nicefying 1x18 matrix.
 Checking map equation 1 of 1.
 Time to realize x,y over rationals: 0.020
-There are 4 rational points on 64.96.3.b.1. Total time taken was 36.230 sec.
+Pulling back points
+Map to elliptic curve has 1 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 0, 0, 0, 4, 0 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (2 : 4 : 1).
+Beginning test of p = 3.
+Tested p = 3. There are 3 points, of which 1 are singular.
+Beginning test of p = 5.
+Tested p = 5. There are 3 points, of which 1 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 3 points, of which 1 are singular.
+Beginning test of p = 11.
+Tested p = 11. There are 3 points, of which 1 are singular.
+Beginning test of p = 13.
+Tested p = 13. There are 3 points, of which 1 are singular.
+Beginning test of p = 17.
+Tested p = 17. There are 3 points, of which 1 are singular.
+Beginning test of p = 19.
+Tested p = 19. There are 3 points, of which 1 are singular.
+Beginning test of p = 23.
+Tested p = 23. There are 3 points, of which 1 are singular.
+Beginning test of p = 29.
+Tested p = 29. There are 3 points, of which 1 are singular.
+Beginning test of p = 31.
+Tested p = 31. There are 3 points, of which 1 are singular.
+Beginning test of p = 37.
+Tested p = 37. There are 3 points, of which 1 are singular.
+Beginning test of p = 41.
+Tested p = 41. There are 3 points, of which 1 are singular.
+Beginning test of p = 43.
+Tested p = 43. There are 3 points, of which 1 are singular.
+Beginning test of p = 47.
+Tested p = 47. There are 3 points, of which 1 are singular.
+Beginning test of p = 53.
+Tested p = 53. There are 3 points, of which 1 are singular.
+Beginning test of p = 59.
+Tested p = 59. There are 3 points, of which 1 are singular.
+Beginning test of p = 61.
+Tested p = 61. There are 3 points, of which 1 are singular.
+Beginning test of p = 67.
+Tested p = 67. There are 3 points, of which 1 are singular.
+Beginning test of p = 71.
+Tested p = 71. There are 3 points, of which 1 are singular.
+Beginning test of p = 73.
+Tested p = 73. There are 3 points, of which 1 are singular.
+Beginning test of p = 79.
+Tested p = 79. There are 3 points, of which 1 are singular.
+Beginning test of p = 83.
+Tested p = 83. There are 3 points, of which 1 are singular.
+Beginning test of p = 89.
+Tested p = 89. There are 3 points, of which 1 are singular.
+Beginning test of p = 97.
+Tested p = 97. There are 3 points, of which 1 are singular.
+Beginning test of p = 101.
+Tested p = 101. There are 3 points, of which 1 are singular.
+Beginning test of p = 103.
+Tested p = 103. There are 3 points, of which 1 are singular.
+Fall back to built-in function - no non-singular reduction found.
+Found rational point (-1 : -1 : 1).
+Found rational point (1 : 1 : 1).
+Found rational point (0 : 1 : 0).
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 3.
+Tested p = 3. There are 2 points, of which 2 are singular.
+Beginning test of p = 5.
+Tested p = 5. There are 2 points, of which 2 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 2 points, of which 2 are singular.
+Beginning test of p = 11.
+Tested p = 11. There are 2 points, of which 2 are singular.
+Beginning test of p = 13.
+Tested p = 13. There are 2 points, of which 2 are singular.
+Beginning test of p = 17.
+Tested p = 17. There are 2 points, of which 2 are singular.
+Beginning test of p = 19.
+Tested p = 19. There are 2 points, of which 2 are singular.
+Beginning test of p = 23.
+Tested p = 23. There are 2 points, of which 2 are singular.
+Beginning test of p = 29.
+Tested p = 29. There are 2 points, of which 2 are singular.
+Beginning test of p = 31.
+Tested p = 31. There are 2 points, of which 2 are singular.
+Beginning test of p = 37.
+Tested p = 37. There are 2 points, of which 2 are singular.
+Beginning test of p = 41.
+Tested p = 41. There are 2 points, of which 2 are singular.
+Beginning test of p = 43.
+Tested p = 43. There are 2 points, of which 2 are singular.
+Beginning test of p = 47.
+Tested p = 47. There are 2 points, of which 2 are singular.
+Beginning test of p = 53.
+Tested p = 53. There are 2 points, of which 2 are singular.
+Beginning test of p = 59.
+Tested p = 59. There are 2 points, of which 2 are singular.
+Beginning test of p = 61.
+Tested p = 61. There are 2 points, of which 2 are singular.
+Beginning test of p = 67.
+Tested p = 67. There are 2 points, of which 2 are singular.
+Beginning test of p = 71.
+Tested p = 71. There are 2 points, of which 2 are singular.
+Beginning test of p = 73.
+Tested p = 73. There are 2 points, of which 2 are singular.
+Beginning test of p = 79.
+Tested p = 79. There are 2 points, of which 2 are singular.
+Beginning test of p = 83.
+Tested p = 83. There are 2 points, of which 2 are singular.
+Beginning test of p = 89.
+Tested p = 89. There are 2 points, of which 2 are singular.
+Beginning test of p = 97.
+Tested p = 97. There are 2 points, of which 2 are singular.
+Beginning test of p = 101.
+Tested p = 101. There are 2 points, of which 2 are singular.
+Beginning test of p = 103.
+Tested p = 103. There are 2 points, of which 2 are singular.
+Fall back to built-in function - no non-singular reduction found.
+Found rational point (-1 : -1 : 1).
+Found rational point (1 : 1 : 1).
+Pulling back point (0 : 0 : 1).
+Beginning test of p = 3.
+Tested p = 3. There are 2 points, of which 0 are singular.
+Lifting mod p point (1 : 1 : 1).
+We found a rational point (1 : 1 : 1).
+Lifting mod p point (2 : 2 : 1).
+We found a rational point (-1 : -1 : 1).
+Mod 3 there are 2 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_3) is bijective. We're done!
+Pulling back point (2 : -4 : 1).
+Beginning test of p = 3.
+Tested p = 3. There are 3 points, of which 1 are singular.
+Beginning test of p = 5.
+Tested p = 5. There are 3 points, of which 1 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 3 points, of which 1 are singular.
+Beginning test of p = 11.
+Tested p = 11. There are 3 points, of which 1 are singular.
+Beginning test of p = 13.
+Tested p = 13. There are 3 points, of which 1 are singular.
+Beginning test of p = 17.
+Tested p = 17. There are 3 points, of which 1 are singular.
+Beginning test of p = 19.
+Tested p = 19. There are 3 points, of which 1 are singular.
+Beginning test of p = 23.
+Tested p = 23. There are 3 points, of which 1 are singular.
+Beginning test of p = 29.
+Tested p = 29. There are 3 points, of which 1 are singular.
+Beginning test of p = 31.
+Tested p = 31. There are 3 points, of which 1 are singular.
+Beginning test of p = 37.
+Tested p = 37. There are 3 points, of which 1 are singular.
+Beginning test of p = 41.
+Tested p = 41. There are 3 points, of which 1 are singular.
+Beginning test of p = 43.
+Tested p = 43. There are 3 points, of which 1 are singular.
+Beginning test of p = 47.
+Tested p = 47. There are 3 points, of which 1 are singular.
+Beginning test of p = 53.
+Tested p = 53. There are 3 points, of which 1 are singular.
+Beginning test of p = 59.
+Tested p = 59. There are 3 points, of which 1 are singular.
+Beginning test of p = 61.
+Tested p = 61. There are 3 points, of which 1 are singular.
+Beginning test of p = 67.
+Tested p = 67. There are 3 points, of which 1 are singular.
+Beginning test of p = 71.
+Tested p = 71. There are 3 points, of which 1 are singular.
+Beginning test of p = 73.
+Tested p = 73. There are 3 points, of which 1 are singular.
+Beginning test of p = 79.
+Tested p = 79. There are 3 points, of which 1 are singular.
+Beginning test of p = 83.
+Tested p = 83. There are 3 points, of which 1 are singular.
+Beginning test of p = 89.
+Tested p = 89. There are 3 points, of which 1 are singular.
+Beginning test of p = 97.
+Tested p = 97. There are 3 points, of which 1 are singular.
+Beginning test of p = 101.
+Tested p = 101. There are 3 points, of which 1 are singular.
+Beginning test of p = 103.
+Tested p = 103. There are 3 points, of which 1 are singular.
+Fall back to built-in function - no non-singular reduction found.
+Found rational point (-1 : -1 : 1).
+Found rational point (1 : 1 : 1).
+Found rational point (1 : 0 : 0).
+There are 4 rational points on the given modular curve.
+They are [ (1 : 1 : 1), (0 : 1 : 0), (1 : 0 : 0), (-1 : -1 : 1) ].
+Time to pull back points: 0.060
+There are 4 rational points on 64.96.3.b.1. Total time taken was 34.400 sec.
 Choosing power series precision = 150.
 Creating model with power series precision 150.
 Model found. Now increasing precision.
@@ -351,7 +635,7 @@ Best elliptic curve 1 is [ 1, 1, 0, 1, 0 ]. The Manin constant is 1/39.
 Starting modular degree computation.
 Computing 84 periods.
 Analytic modular degree is 2.
-Time to compute analytic modular degree: 53.670
+Time to compute analytic modular degree: 52.680
 Minimal modular degree is 2. Choosing elliptic curve [ 1, 1, 0, 1, 0 ].
 Image of cusp 1 has order 1 on elliptic curve.
 Point is (0 : 1 : 0).
@@ -387,15 +671,86 @@ Null space time was 0.010 sec.
 Null space vector 1 of 6 is good.
 Time to realize x,y over cyclotomic field: 0.040
 Starting cyclotomic map evaluation.
-Map 1 goes from XG to curve [ 1, 1, 0, 1, 0 ]. Base point (0 : 0 : -1 : -1 : 1) maps to (0 : 0 : 1).
+Map 1 goes from XG to curve [ 1, 1, 0, 1, 0 ]. Base point (0 : 1 : -1 : 0 : 1) maps to (0 : 0 : 1).
 Realizing x,y over rationals.
 Generating rational canonical ring.
 Searching for map 1 of 1 in degree 1.
 Matrix size is 15 x 4224.
 For d = 1, dimension of null space is 1.
+Null space time was 0.000 sec.
 Nicefying 1x15 matrix.
 Checking map equation 1 of 1.
 Time to realize x,y over rationals: 0.020
+Pulling back points
+Map to elliptic curve has 1 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 1, 1, 0, 1, 0 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 5.
+Tested p = 5. There are 4 points, of which 0 are singular.
+Lifting mod p point (0 : 1 : 1 : 4 : 1).
+We found a rational point (0 : 1 : 1 : -1 : 1).
+Lifting mod p point (0 : 1 : 4 : 0 : 1).
+We found a rational point (0 : 1 : -1 : 0 : 1).
+Lifting mod p point (0 : 0 : 4 : 1 : 0).
+We found a rational point (0 : 0 : -1 : 1 : 0).
+Lifting mod p point (0 : 0 : 1 : 0 : 0).
+We found a rational point (0 : 0 : 1 : 0 : 0).
+Mod 5 there are 4 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_5) is bijective. We're done!
+Pulling back point (0 : 0 : 1).
+Beginning test of p = 5.
+Tested p = 5. There are 2 points, of which 2 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 2 points, of which 2 are singular.
+Beginning test of p = 11.
+Tested p = 11. There are 2 points, of which 2 are singular.
+Beginning test of p = 19.
+Tested p = 19. There are 2 points, of which 2 are singular.
+Beginning test of p = 23.
+Tested p = 23. There are 2 points, of which 2 are singular.
+Beginning test of p = 29.
+Tested p = 29. There are 2 points, of which 2 are singular.
+Beginning test of p = 31.
+Tested p = 31. There are 2 points, of which 2 are singular.
+Beginning test of p = 37.
+Tested p = 37. There are 2 points, of which 2 are singular.
+Beginning test of p = 41.
+Tested p = 41. There are 2 points, of which 2 are singular.
+Beginning test of p = 43.
+Tested p = 43. There are 2 points, of which 2 are singular.
+Beginning test of p = 47.
+Tested p = 47. There are 2 points, of which 2 are singular.
+Beginning test of p = 53.
+Tested p = 53. There are 2 points, of which 2 are singular.
+Beginning test of p = 59.
+Tested p = 59. There are 2 points, of which 2 are singular.
+Beginning test of p = 61.
+Tested p = 61. There are 2 points, of which 2 are singular.
+Beginning test of p = 67.
+Tested p = 67. There are 2 points, of which 2 are singular.
+Beginning test of p = 71.
+Tested p = 71. There are 2 points, of which 2 are singular.
+Beginning test of p = 73.
+Tested p = 73. There are 2 points, of which 2 are singular.
+Beginning test of p = 79.
+Tested p = 79. There are 2 points, of which 2 are singular.
+Beginning test of p = 83.
+Tested p = 83. There are 2 points, of which 2 are singular.
+Beginning test of p = 89.
+Tested p = 89. There are 2 points, of which 2 are singular.
+Beginning test of p = 97.
+Tested p = 97. There are 2 points, of which 2 are singular.
+Beginning test of p = 101.
+Tested p = 101. There are 2 points, of which 2 are singular.
+Beginning test of p = 103.
+Tested p = 103. There are 2 points, of which 2 are singular.
+Fall back to built-in function - no non-singular reduction found.
+Found rational point (0 : 1 : 1 : -1 : 1).
+Found rational point (0 : 0 : -1 : 1 : 0).
+There are 4 rational points on the given modular curve.
+They are [ (0 : 1 : -1 : 0 : 1), (0 : 0 : -1 : 1 : 0), (0 : 0 : 1 : 0 : 0), (0 : 1 : 1 : -1 : 1) ].
+Time to pull back points: 0.070
 There are 4 rational points on 39.84.5.b.1.
 Computing j map.
 Increasing modular form precision to 1100 to compute j-map.
@@ -419,12 +774,12 @@ For d = 11, dimension of null space is 2.
 Nicefying 2x168 matrix.
 Checking map equation 1 of 2.
 Checking map equation 2 of 2.
-Time to compute j map: 375.500
-Image of point (0 : 0 : -1 : -1 : 1) is (1 : 0).
-Image of point (0 : 1 : 0 : 0 : 1) is (1 : 0).
-Image of point (0 : 0 : 0 : 0 : 1) is (1 : 0).
-Image of point (0 : 1 : 1 : 1 : 1) is (1 : 0).
-The images on the j-line are {* (1 : 0)^^4 *}. Total time taken was 444.520 sec.
+Time to compute j map: 433.720
+Image of point (0 : 1 : -1 : 0 : 1) is (1 : 0).
+Image of point (0 : 0 : -1 : 1 : 0) is (1 : 0).
+Image of point (0 : 0 : 1 : 0 : 0) is (1 : 0).
+Image of point (0 : 1 : 1 : -1 : 1) is (1 : 0).
+The images on the j-line are {* (1 : 0)^^4 *}. Total time taken was 500.860 sec.
 Choosing power series precision = 136.
 Creating model with power series precision 136.
 Model found. Now increasing precision.
@@ -439,7 +794,7 @@ Best elliptic curve 1 is [ 0, 0, 0, -27, -918 ]. The Manin constant is 1/216.
 Starting modular degree computation.
 Computing 108 periods.
 Analytic modular degree is 6.
-Time to compute analytic modular degree: 19.730
+Time to compute analytic modular degree: 19.630
 Minimal modular degree is 6. Choosing elliptic curve [ 0, 0, 0, -27, -918 ].
 Image of cusp 1 has order 1 on elliptic curve.
 Point is (0 : 1 : 0).
@@ -459,17 +814,19 @@ Computing Fourier expansions of x and y modular functions at cusp 2 of 3.
 Computing Fourier expansions of x and y modular functions at cusp 3 of 3.
 Realizing x,y over rationals.
 Computing Grobner basis for ideal.
-Grobner basis time was 0.010.
+Grobner basis time was 0.000.
 Generating rational canonical ring.
 Generating degree 1 piece of canonical ring.
 Generating degree 2 piece of canonical ring.
 Searching for map 1 of 1 in degree 2.
 Matrix size is 45 x 4536.
 For d = 2, dimension of null space is 0.
+Null space time was 0.010 sec.
 Generating degree 3 piece of canonical ring.
 Searching for map 1 of 1 in degree 3.
 Matrix size is 75 x 4536.
 For d = 3, dimension of null space is 7.
+Null space time was 0.190 sec.
 Nicefying 7x75 matrix.
 Checking map equation 1 of 5.
 Checking map equation 2 of 5.
@@ -487,7 +844,25 @@ Checking compatability of map equation 2 and 5.
 Checking compatability of map equation 3 and 5.
 Checking compatability of map equation 4 and 5.
 Time to realize x,y over rationals: 1.650
-There are 3 rational points on 36.108.6.g.1. Total time taken was 31.060 sec.
+Pulling back points
+Map to elliptic curve has 5 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 0, 0, 0, -27, -918 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 7.
+Tested p = 7. There are 3 points, of which 0 are singular.
+Lifting mod p point (0 : 6 : 0 : 1 : 2 : 1).
+We found a rational point (0 : -1 : 0 : 1 : 2 : 1).
+Lifting mod p point (1 : 4 : 3 : 3 : 1 : 1).
+We found a rational point (-2/5 : -1/5 : -6/5 : 1/5 : -2/5 : 1).
+Lifting mod p point (5 : 3 : 1 : 4 : 0 : 1).
+We found a rational point (-1/4 : -1/2 : -3/4 : 1/2 : -7/4 : 1).
+Mod 7 there are 3 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_7) is bijective. We're done!
+There are 3 rational points on the given modular curve.
+They are [ (0 : -1 : 0 : 1 : 2 : 1), (-2/5 : -1/5 : -6/5 : 1/5 : -2/5 : 1), (-1/4 : -1/2 : -3/4 : 1/2 : -7/4 : 1) ].
+Time to pull back points: 0.080
+There are 3 rational points on 36.108.6.g.1. Total time taken was 31.540 sec.
 Choosing power series precision = 189.
 Creating model with power series precision 189.
 Model found. Now increasing precision.
@@ -847,32 +1222,32 @@ Best elliptic curve 1 is [ 0, 0, 1, 0, -7 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 9.
-Time to compute analytic modular degree: 10.550
+Time to compute analytic modular degree: 10.560
 Best elliptic curve 1 is [ 1, -1, 0, 12, 8 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 18.
-Time to compute analytic modular degree: 18.150
+Time to compute analytic modular degree: 18.400
 Best elliptic curve 1 is [ 1, -1, 1, -29, -53 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 18.
-Time to compute analytic modular degree: 18.170
+Time to compute analytic modular degree: 18.640
 Best elliptic curve 1 is [ 1, -1, 1, 25, 1 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 18.
-Time to compute analytic modular degree: 17.560
+Time to compute analytic modular degree: 18.050
 Best elliptic curve 1 is [ 1, -1, 0, 3, -1 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 6.
-Time to compute analytic modular degree: 17.510
+Time to compute analytic modular degree: 18.290
 Best elliptic curve 1 is [ 1, -1, 1, -56, -161 ]. The Manin constant is 1/54.
 Starting modular degree computation.
 Computing 216 periods.
 Analytic modular degree is 36.
-Time to compute analytic modular degree: 15.670
+Time to compute analytic modular degree: 15.680
 Minimal modular degree is 6. Choosing elliptic curve [ 1, -1, 0, 3, -1 ].
 Image of cusp 1 has order 1 on elliptic curve.
 Point is (0 : 1 : 0).
@@ -919,25 +1294,26 @@ Computing Fourier expansions of x and y modular functions at cusp 11 of 12.
 Computing Fourier expansions of x and y modular functions at cusp 12 of 12.
 Realizing x,y over cyclotomic field.
 Computing Grobner basis for ideal.
-Grobner basis time was 0.010.
+Grobner basis time was 0.000.
 Generating cyclotomic canonical ring.
 Generating degree 1 piece of canonical ring.
 Searching for map 1 of 1.
 For d = 1, dimension of null space is 0.
-Null space time was 0.010 sec.
+Null space time was 0.000 sec.
 Generating degree 2 piece of canonical ring.
 Searching for map 1 of 1.
 For d = 2, dimension of null space is 12.
-Null space time was 0.530 sec.
+Null space time was 0.490 sec.
 Null space vector 1 of 12 is good.
-Time to realize x,y over cyclotomic field: 0.690
+Time to realize x,y over cyclotomic field: 0.650
 Starting cyclotomic map evaluation.
-Map 1 goes from XG to curve [ 1, -1, 0, 3, -1 ]. Base point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0 : 1) maps to (z^5 - 2*z^4 - 2*z^2 + z + 1 : z^5 - 2*z^4 + 3*z^3 - 2*z^2 + z - 2 : 1).
+Map 1 goes from XG to curve [ 1, -1, 0, 3, -1 ]. Base point (-1 : 0 : 0 : 0 : -1 : 0 : 0 : 0 : -1 : 0 : 1) maps to (z^5 - 2*z^4 + z^2 + z - 2 : 4*z^5 + z^4 - 6*z^3 - 5*z^2 + 4*z + 4 : 1).
 Realizing x,y over rationals.
 Generating rational canonical ring.
 Searching for map 1 of 1 in degree 2.
-Matrix size is 90 x 3456.
+Matrix size is 90 x 3444.
 For d = 2, dimension of null space is 12.
+Null space time was 0.030 sec.
 Nicefying 12x90 matrix.
 Checking map equation 1 of 5.
 Checking map equation 2 of 5.
@@ -954,8 +1330,104 @@ Checking compatability of map equation 1 and 5.
 Checking compatability of map equation 2 and 5.
 Checking compatability of map equation 3 and 5.
 Checking compatability of map equation 4 and 5.
-Time to realize x,y over rationals: 0.300
-There are 4 rational points on 18.216.11.c.1. Total time taken was 126.030 sec.
+Time to realize x,y over rationals: 0.270
+Pulling back points
+Map to elliptic curve has 5 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 1, -1, 0, 3, -1 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (1 : 1 : 1).
+Beginning test of p = 5.
+Tested p = 5. There are 3 points, of which 0 are singular.
+Lifting mod p point (3 : 1 : 1 : 2 : 1 : 3 : 2 : 4 : 1 : 3 : 1).
+We didn't find a rational point.
+Lifting mod p point (4 : 1 : 3 : 1 : 3 : 4 : 1 : 2 : 0 : 4 : 1).
+We didn't find a rational point.
+Lifting mod p point (1 : 0 : 2 : 4 : 2 : 1 : 4 : 3 : 1 : 1 : 0).
+We didn't find a rational point.
+Mod 5 there are 3 points, all of which are non-singular.
+Mod 7 there are 1 points, all of which are non-singular.
+Mod 13 there are 1 points, all of which are non-singular.
+Mod 17 there are 4 points, all of which are non-singular.
+Mod 19 there are 4 points, all of which are non-singular.
+Mod 23 there are 0 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_23) is bijective. We're done!
+Pulling back point (1 : -2 : 1).
+Beginning test of p = 5.
+Tested p = 5. There are 3 points, of which 1 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 4 points, of which 0 are singular.
+Lifting mod p point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 6 : 0 : 0 : 1).
+We found a rational point (0 : 0 : 0 : 0 : 0 : 0 : 0 : -1 : 0 : 0 : 1).
+Lifting mod p point (0 : 0 : 0 : 6 : 0 : 1 : 6 : 0 : 6 : 1 : 1).
+We found a rational point (0 : 0 : 0 : -1 : 0 : 1 : -1 : 0 : -1 : 1 : 1).
+Lifting mod p point (4 : 6 : 3 : 6 : 0 : 5 : 5 : 1 : 5 : 6 : 1).
+We didn't find a rational point.
+Lifting mod p point (5 : 3 : 2 : 6 : 5 : 6 : 2 : 4 : 6 : 0 : 1).
+We didn't find a rational point.
+Mod 7 there are 4 points, all of which are non-singular.
+Mod 11 there are 4 points, all of which are non-singular.
+Mod 13 there are 3 points, all of which are non-singular.
+Mod 17 there are 4 points, all of which are non-singular.
+Mod 19 there are 2 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_19) is bijective. We're done!
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 5.
+Tested p = 5. There are 2 points, of which 1 are singular.
+Beginning test of p = 7.
+Tested p = 7. There are 2 points, of which 1 are singular.
+Beginning test of p = 11.
+Tested p = 11. There are 2 points, of which 1 are singular.
+Beginning test of p = 13.
+Tested p = 13. There are 2 points, of which 1 are singular.
+Beginning test of p = 17.
+Tested p = 17. There are 5 points, of which 1 are singular.
+Beginning test of p = 19.
+Tested p = 19. There are 5 points, of which 1 are singular.
+Beginning test of p = 23.
+Tested p = 23. There are 2 points, of which 1 are singular.
+Beginning test of p = 29.
+Tested p = 29. There are 2 points, of which 1 are singular.
+Beginning test of p = 31.
+Tested p = 31. There are 2 points, of which 1 are singular.
+Beginning test of p = 37.
+Tested p = 37. There are 5 points, of which 1 are singular.
+Beginning test of p = 41.
+Tested p = 41. There are 2 points, of which 1 are singular.
+Beginning test of p = 43.
+Tested p = 43. There are 2 points, of which 1 are singular.
+Beginning test of p = 47.
+Tested p = 47. There are 2 points, of which 1 are singular.
+Beginning test of p = 53.
+Tested p = 53. There are 5 points, of which 1 are singular.
+Beginning test of p = 59.
+Tested p = 59. There are 2 points, of which 1 are singular.
+Beginning test of p = 61.
+Tested p = 61. There are 2 points, of which 1 are singular.
+Beginning test of p = 67.
+Tested p = 67. There are 2 points, of which 1 are singular.
+Beginning test of p = 71.
+Tested p = 71. There are 5 points, of which 1 are singular.
+Beginning test of p = 73.
+Tested p = 73. There are 5 points, of which 1 are singular.
+Beginning test of p = 79.
+Tested p = 79. There are 2 points, of which 1 are singular.
+Beginning test of p = 83.
+Tested p = 83. There are 2 points, of which 1 are singular.
+Beginning test of p = 89.
+Tested p = 89. There are 5 points, of which 1 are singular.
+Beginning test of p = 97.
+Tested p = 97. There are 2 points, of which 1 are singular.
+Beginning test of p = 101.
+Tested p = 101. There are 2 points, of which 1 are singular.
+Beginning test of p = 103.
+Tested p = 103. There are 2 points, of which 1 are singular.
+Fall back to built-in function - no non-singular reduction found.
+Found rational point (-1 : 0 : 0 : 0 : -1 : 0 : 0 : 0 : -1 : 0 : 1).
+Found rational point (0 : 0 : 0 : -1 : 0 : 0 : 1 : 0 : 0 : 0 : 0).
+There are 4 rational points on the given modular curve.
+They are [ (-1 : 0 : 0 : 0 : -1 : 0 : 0 : 0 : -1 : 0 : 1), (0 : 0 : 0 : -1 : 0 : 0 : 1 : 0 : 0 : 0 : 0), (0 : 0 : 0 : 0 : 0 : 0 : 0 : -1 : 0 : 0 : 1), (0 : 0 : 0 : -1 : 0 : 1 : -1 : 0 : -1 : 1 : 1) ].
+Time to pull back points: 2.150
+There are 4 rational points on 18.216.11.c.1. Total time taken was 126.010 sec.
 > quit;
 
-Total time: 660.759 seconds, Total memory usage: 976.12MB
+Total time: 714.529 seconds, Total memory usage: 1001.19MB

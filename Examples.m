@@ -1,3 +1,4 @@
+SetLogFile("Examples2.out");
 // First load files from David Zywina's "Modular" repo.
 // Available at: https://github.com/davidzywina/Modular
 // It is necessary to first navigate to the directory containing this file or to // use the ChangeDirectory command.
@@ -5,19 +6,19 @@ AttachSpec("Modular.spec");
 
 // Now load the script ModCrvToEC. It is necessary to first navigate to the directory
 // containing this file or to use the ChangeDirectory command.
-Attach("ModCrvToEC.m");
+Attach("ModCrvToECv2.m");
 
 // Example: 6.6.1.a.1 - Simplest genus >= 1 modular curve.
 // Run time is under 1 second.
 N := 6;
 gens := [[1,3,3,2],[1,5,5,2]];
 tim0 := Cputime();
-ModEC := InitializeModEC(N, gens);
+ModEC := InitializeModEC(N, gens : Verbose := true);
 // Find a base point.
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
-Maps := FindMapsToEC(ModEC, [0,0,0,0,-27], 1);
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, [0,0,0,0,-27], 1);
+ratpoints := RatPtsFromMaps(ModEC);
 ModEC := ComputeJ(ModEC);
 jims := RatPtsJInvs(ModEC,ratpoints);
 tim1 := Cputime(tim0);
@@ -36,9 +37,9 @@ Iso; // The elliptic curve [ 0, -1, 0, -2, 1 ] is the only elliptic curve that c
 Mx; // The multiplicity of [ 0, -1, 0, -2, 1 ] in the Jacobian decomposition is at most 2.
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
-Maps := FindMapsToEC(ModEC, Iso, Mx);
+ModEC := FindMapsToEC(ModEC, Iso, Mx);
 // We found a rational map to an elliptic curve [0,-1,0,-142,701], which is isogenous to [0,-1,0,-2,1].
-printf "We found the map from X_G to the elliptic curve %o. The total time taken was %o sec.\n",aInvariants(Codomain(Maps[1])),Cputime(tim0);
+printf "We found the map from X_G to the elliptic curve %o. The total time taken was %o sec.\n",aInvariants(ModEC`Elist[1]),Cputime(tim0);
 
 // Example: 37.38.2.a.1 - X_0(37), a genus 2 modular curve with 4 rational points.
 // Run time is about 60 seconds.
@@ -48,8 +49,8 @@ tim0 := Cputime();
 ModEC := InitializeModEC(N, gens : Verbose := true);
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
-Maps := FindMapsToEC(ModEC, [0,1,1,-3,1], 1); // Choose the rank zero factor.
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, [0,1,1,-3,1], 1); // Choose the rank zero factor.
+ratpoints := RatPtsFromMaps(ModEC : Verbose := true);
 tim1 := Cputime(tim0);
 printf "There are %o rational points on 37.38.2.a.1. Total time taken was %o sec.\n",#ratpoints,tim1;
 
@@ -65,8 +66,8 @@ P2<x,y,z> := ProjectiveSpace(Rationals(), 2);
 fq := Curve(P2, x^4+y^4-z^4);
 assert IsIsomorphic(fq,ModEC`XG);
 Iso, Mx := EllipticCurveQuoCandidates(ModEC : OnlyRankZero := true);
-Maps := FindMapsToEC(ModEC, Iso, Mx); 
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, Iso, Mx); 
+ratpoints := RatPtsFromMaps(ModEC : Verbose := true);
 tim1 := Cputime(tim0);
 printf "There are %o rational points on 64.96.3.b.1. Total time taken was %o sec.\n",#ratpoints,tim1;
 
@@ -78,8 +79,8 @@ tim0 := Cputime();
 ModEC := InitializeModEC(N, gens : Verbose := true);
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
-Maps := FindMapsToEC(ModEC, [[1,1,0,1,0]], [1]); 
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, [[1,1,0,1,0]], [1]); 
+ratpoints := RatPtsFromMaps(ModEC : Verbose := true);
 printf "There are %o rational points on 39.84.5.b.1.\n",#ratpoints;
 ModEC := ComputeJ(ModEC);
 jims := RatPtsJInvs(ModEC,ratpoints);
@@ -94,8 +95,8 @@ N := 36;
 gens := [[8,17,25,12],[12,23,5,15],[14,15,25,5]];
 tim0 := Cputime();
 ModEC := InitializeModEC(N, gens : Verbose := true);
-Maps := FindMapsToEC(ModEC, [[0,0,0,-27,-918]], [1] : IgnoreBase := true); 
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, [[0,0,0,-27,-918]], [1] : IgnoreBase := true); 
+ratpoints := RatPtsFromMaps(ModEC : Verbose := true);
 tim1 := Cputime(tim0);
 printf "There are %o rational points on 36.108.6.g.1. Total time taken was %o sec.\n",#ratpoints,tim1;
 
@@ -112,8 +113,8 @@ ModEC := InitializeModEC(N, gens : precmult := 3, Verbose := true);  // Setting 
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
 Iso, Mx := EllipticCurveQuoCandidates(ModEC : OnlyRankZero := true);
-Maps := FindMapsToEC(ModEC, Iso, Mx); 
-ratpoints := RatPtsFromMaps(N,Maps);
+ModEC := FindMapsToEC(ModEC, Iso, Mx); 
+ratpoints := RatPtsFromMaps(ModEC : Verbose := true);
 tim1 := Cputime(tim0);
 printf "There are %o rational points on 18.216.11.c.1. Total time taken was %o sec.\n",#ratpoints,tim1;
 

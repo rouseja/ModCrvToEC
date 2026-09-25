@@ -5,8 +5,8 @@ This repository contains Magma code (by Jacob Mayle and Jeremy Rouse) for comput
 1. If necessary, update [Magma](https://magma.maths.usyd.edu.au/magma/). (We believe that V2.28-21 or newer is needed.)
 2. Download David Zywina's [Modular](https://github.com/davidzywina/Modular) repository. 
 3. Move the folders `main` and `earlier_code` to Magma's directory folder (use the <code>GetCurrentDirectory()</code> command in Magma to see the current directory).
-4. Download the file [ModCrvToEC.m](https://github.com/rouseja/ModCrvToEC/blob/main/ModCrvToEC.m) from this repository and move it to Magma's directory folder.
-5. Open Magma and run the commands <code>AttachSpec("Modular.spec");</code> and <code>Attach("ModCrvToEC.m");</code>. 
+4. Download the file [ModCrvToECv2.m](https://github.com/rouseja/ModCrvToEC/blob/main/ModCrvToECv2.m) from this repository and move it to Magma's directory folder.
+5. Open Magma and run the commands <code>AttachSpec("Modular.spec");</code> and <code>Attach("ModCrvToECv2.m");</code>. 
 
 ## Primary functions
 
@@ -15,10 +15,9 @@ and generators for a subgroup of $GL(2,\mathbb{Z}/N\mathbb{Z})$ and returns a <c
 
 - The function <code>EllipticCurveQuoCandidates</code> takes as input a <code>ModEC</code> record and uses the action of Hecke operators to list all potential elliptic curve factors of $X_{G}$. It returns two lists: a list of elliptic curves that *could* occur in the Jacobian decomposition of $X_G$, and a corresponding list of *upper bounds* on their multiplicities in the Jacobian decomposition. (If the optional parameter <code>OnlyRankZero</code> is set to true, only rank zero elliptic curves are returned.)
 
-- The function <code>FindMapsToEC</code> takes as input a <code>ModEC</code> record, an elliptic curve (or a list of elliptic curves), and a multiplicity (or a list of multiplicities) and returns a map from $X_{G}$ to an elliptic curve isogenous to one of those in the list. The function automatically chooses which elliptic curve in the isogeny class to map to. Also, in the event that multiple elliptic curves are specified, the function picks an elliptic curve so that the map from $X_{G}$ to $E$ has minimal degree.
+- The function <code>FindMapsToEC</code> takes as input a <code>ModEC</code> record, an elliptic curve (or a list of elliptic curves), and a multiplicity (or a list of multiplicities) and returns a <code>ModEC</code> record which includes a map from $X_{G}$ to an elliptic curve isogenous to one of those in the list. The function automatically chooses which elliptic curve in the isogeny class to map to. Also, in the event that multiple elliptic curves are specified, the function picks an elliptic curve so that the map from $X_{G}$ to $E$ has minimal degree.
 
-- The function <code>RatPtsFromMaps</code> takes as input a level $N$
-and a list of maps to elliptic curves of rank zero and determines the rational points on $X_{G}$ by pulling back all the rational points on $E$ to $X_{G}$. This function uses Hensel lifting and rational reconstruction to handle the zero-dimensional schemes that arise. In complicated cases it is likely to be faster than Magma's built-in functionality.
+- The function <code>RatPtsFromMaps</code> takes as input a <code>ModEC</code> record which includes a map from $X_{G}$ to an elliptic curve, and determines the rational points on $X_{G}$ by pulling back all the rational points on $E$ to $X_{G}$. This function uses Hensel lifting and rational reconstruction to handle the zero-dimensional schemes that arise. In complicated cases it is likely to be faster than Magma's built-in functionality.
 
 - The function <code>ComputeJ</code> takes as input a <code>ModEC</code> record and computes the $j$-map $j \colon X_{G} \to \mathbb{P}^{1}$.
 
@@ -29,7 +28,7 @@ and a list of maps to elliptic curves of rank zero and determines the rational p
 The commands
 ```
 AttachSpec("Modular.spec");
-Attach("ModCrvToEC.m");
+Attach("ModCrvToECv2.m");
 ```
 make available the needed functions.
 
@@ -49,13 +48,13 @@ Now, running the commands
 ```
 pts := PointSearch(ModEC`XG,100);
 ModEC`BasePt := pts[1];
-Map := FindMapsToEC(ModEC, Iso, Mults);
+ModEC := FindMapsToEC(ModEC, Iso, Mults);
 ```
 determines that the degree of the map from $X_{G}$ to [1,0,1,-126,523] is 3, while
-the degree of the map from $X_{G}$ to [0,1,1,2,4] is 6. The map from $X_{G}$ to [1,0,1,-126,523] is then computed and returned.
+the degree of the map from $X_{G}$ to [0,1,1,2,4] is 6. The map from $X_{G}$ to [1,0,1,-126,523] is then computed and written to the record <code>ModEC</code>.
 
 ```
-ratpts := RatPtsFromMaps(N, Map);
+ratpts := RatPtsFromMaps(ModEC);
 ModEC := ComputeJ(ModEC);
 RatPtsJInvs(ModEC,ratpts);
 ```

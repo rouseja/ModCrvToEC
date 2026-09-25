@@ -1,0 +1,289 @@
+Magma seed is 3540543092.
+Loading "newcmpointcount.m"
+Loading "cmdata.txt"
+Loading "nfdata.m"
+Starting curve 1 with label 42.168.11.c.1.
+Choosing power series precision = 324.
+Creating model with power series precision 324.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 5.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Trying to find Hecke matrix for p = 17.
+Trying to find Hecke matrix for p = 19.
+Trying to find Hecke matrix for p = 23.
+Trying to find Hecke matrix for p = 29.
+Trying to find Hecke matrix for p = 31.
+Trying to find Hecke matrix for p = 37.
+Trying to find Hecke matrix for p = 41.
+Trying to find Hecke matrix for p = 43.
+Trying to find Hecke matrix for p = 47.
+Nicefying 1x15504 matrix.
+Nicefying 1x15504 matrix.
+Nicefying 1x15504 matrix.
+Nicefying 1x15504 matrix.
+Nicefying 1x15504 matrix.
+Fourier coefficient size diagnostic.
+True max = 6.92820323027550917410978536602.
+Bound is = 126.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 0, 0, 60, 61 ]. The Manin constant is 1/126.
+Starting modular degree computation.
+Computing 168 periods.
+Analytic modular degree is 48.
+Time to compute analytic modular degree: 50.950
+Best elliptic curve 1 is [ 0, 0, 0, -4116, -84035 ]. The Manin constant is 1/882.
+Starting modular degree computation.
+Computing 168 periods.
+Analytic modular degree is 8.
+Time to compute analytic modular degree: 58.110
+Best elliptic curve 1 is [ 0, 0, 0, 2940, -20923 ]. The Manin constant is 1/882.
+Starting modular degree computation.
+Computing 168 periods.
+Analytic modular degree is 16.
+Time to compute analytic modular degree: 49.850
+Best elliptic curve 1 is [ 0, 0, 0, -84, 245 ]. The Manin constant is 1/126.
+Starting modular degree computation.
+Computing 168 periods.
+Analytic modular degree is 56.
+Time to compute analytic modular degree: 58.720
+Best elliptic curve 1 is [ 0, 0, 0, -588, -22295 ]. The Manin constant is 1/882.
+Starting modular degree computation.
+Computing 168 periods.
+Analytic modular degree is 16.
+Time to compute analytic modular degree: 58.120
+Minimal modular degree is 8. Choosing elliptic curve [ 0, 0, 0, -4116, -84035 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 3 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 4 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Tweaking precision.
+Guaranteed to find map in degree 2.
+Old preclist = [ 324, 324, 324, 324 ].
+precsum = 170, multiplier = 4, powerprec = 52.
+Setting powerprec = 52.
+New preclist = [ 52, 52, 52, 52 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 4.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 4.
+Realizing x,y over cyclotomic field.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.000.
+Generating cyclotomic canonical ring.
+Generating degree 1 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 1, dimension of null space is 0.
+Null space time was 0.000 sec.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1.
+For d = 2, dimension of null space is 6.
+Null space time was 0.060 sec.
+Null space vector 6 of 6 is good.
+Time to realize x,y over cyclotomic field: 0.280
+Starting cyclotomic map evaluation.
+Map 1 goes from XG to curve [ 0, 0, 0, -4116, -84035 ]. Base point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0) maps to (0 : 1 : 0).
+Realizing x,y over rationals.
+Generating rational canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 90 x 4896.
+For d = 2, dimension of null space is 6.
+Null space time was 0.020 sec.
+Nicefying 6x90 matrix.
+Checking map equation 1 of 5.
+Checking map equation 2 of 5.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 5.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Checking map equation 4 of 5.
+Checking compatability of map equation 1 and 4.
+Checking compatability of map equation 2 and 4.
+Checking compatability of map equation 3 and 4.
+Checking map equation 5 of 5.
+Checking compatability of map equation 1 and 5.
+Checking compatability of map equation 2 and 5.
+Checking compatability of map equation 3 and 5.
+Checking compatability of map equation 4 and 5.
+Time to realize x,y over rationals: 0.350
+Pulling back points
+Map to elliptic curve has 5 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 0, 0, 0, -4116, -84035 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 5.
+Tested p = 5. There are 1 points, of which 0 are singular.
+Lifting mod p point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0).
+We found a rational point (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0).
+Mod 5 there are 1 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_5) is bijective. We're done!
+Pulling back point (-49 : 0 : 1).
+Beginning test of p = 5.
+Tested p = 5. There are 0 points, of which 0 are singular.
+Mod 5 there are 0 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_5) is bijective. We're done!
+There is 1 rational point on the given modular curve.
+It is [ (0 : 0 : 0 : 0 : 0 : 0 : 0 : 0 : 1 : 0 : 0) ].
+Time to pull back points: 0.120
+Label: 42.168.11.c.1
+Number of rational cusps: 1
+Number of CM points: 0
+Multiset of CM j-invariants: {* *}
+Number of non-CM points: 0
+Multiset of non-CM j-invariants: {* *}
+Total time needed was 318.380 sec.
+
+Starting curve 2 with label 70.420.32.c.1.
+Choosing power series precision = 572.
+Creating model with power series precision 572.
+Model found. Now increasing precision.
+Precision increase done.
+Trying to find Hecke matrix for p = 3.
+Trying to find Hecke matrix for p = 11.
+Trying to find Hecke matrix for p = 13.
+Trying to find Hecke matrix for p = 17.
+Trying to find Hecke matrix for p = 19.
+Trying to find Hecke matrix for p = 23.
+Trying to find Hecke matrix for p = 29.
+Trying to find Hecke matrix for p = 31.
+Trying to find Hecke matrix for p = 37.
+Trying to find Hecke matrix for p = 41.
+Nicefying 1x82224 matrix.
+Nicefying 1x82224 matrix.
+Nicefying 1x82224 matrix.
+Nicefying 1x82224 matrix.
+Nicefying 1x82224 matrix.
+Fourier coefficient size diagnostic.
+True max = 12.3337101625230104762138293470.
+Bound is = 210.
+Computing periods of 20 matrices (max length 50).
+Best elliptic curve 1 is [ 0, 1, 0, 42, -287 ]. The Manin constant is 1/350.
+Starting modular degree computation.
+Computing 420 periods.
+Analytic modular degree is 60.
+Time to compute analytic modular degree: 1156.290
+Best elliptic curve 1 is [ 0, 0, 0, -55, -450 ]. The Manin constant is 1/350.
+Starting modular degree computation.
+Computing 420 periods.
+Analytic modular degree is 72.
+Time to compute analytic modular degree: 1023.210
+Best elliptic curve 1 is [ 0, 0, 0, -1000, 12500 ]. The Manin constant is 1/350.
+Starting modular degree computation.
+Computing 420 periods.
+Analytic modular degree is 360.
+Time to compute analytic modular degree: 1603.960
+Best elliptic curve 1 is [ 0, 1, 0, -71458, -7415787 ]. The Manin constant is 1/2450.
+Starting modular degree computation.
+Computing 420 periods.
+Analytic modular degree is 40.
+Time to compute analytic modular degree: 1057.940
+Best elliptic curve 1 is [ 0, -1, 0, -1458, 22037 ]. The Manin constant is 1/350.
+Starting modular degree computation.
+Computing 420 periods.
+Analytic modular degree is 280.
+Time to compute analytic modular degree: 1054.970
+Minimal modular degree is 40. Choosing elliptic curve [ 0, 1, 0, -71458, -7415787 ].
+Image of cusp 1 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 2 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 3 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 4 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 5 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Image of cusp 6 has order 1 on elliptic curve.
+Point is (0 : 1 : 0).
+Tweaking precision.
+Guaranteed to find map in degree 3.
+Old preclist = [ 572, 572, 572, 572, 572, 572 ].
+precsum = 632, multiplier = 6, powerprec = 115.
+Setting powerprec = 115.
+New preclist = [ 115, 115, 115, 115, 115, 115 ].
+Finding elliptic curve map 1.
+Computing Fourier expansions of x and y modular functions at cusp 1 of 6.
+Computing Fourier expansions of x and y modular functions at cusp 2 of 6.
+Computing Fourier expansions of x and y modular functions at cusp 3 of 6.
+Computing Fourier expansions of x and y modular functions at cusp 4 of 6.
+Computing Fourier expansions of x and y modular functions at cusp 5 of 6.
+Computing Fourier expansions of x and y modular functions at cusp 6 of 6.
+Realizing x,y over rationals.
+Computing Grobner basis for ideal.
+Grobner basis time was 0.490.
+Generating rational canonical ring.
+Generating degree 1 piece of canonical ring.
+Generating degree 2 piece of canonical ring.
+Searching for map 1 of 1 in degree 2.
+Matrix size is 279 x 32832.
+For d = 2, dimension of null space is 0.
+Null space time was 0.740 sec.
+Generating degree 3 piece of canonical ring.
+Searching for map 1 of 1 in degree 3.
+Matrix size is 465 x 32832.
+For d = 3, dimension of null space is 35.
+Null space time was 142.100 sec.
+Nicefying 35x465 matrix.
+Checking map equation 1 of 5.
+Checking map equation 2 of 5.
+Checking compatability of map equation 1 and 2.
+Checking map equation 3 of 5.
+Checking compatability of map equation 1 and 3.
+Checking compatability of map equation 2 and 3.
+Checking map equation 4 of 5.
+Checking compatability of map equation 1 and 4.
+Checking compatability of map equation 2 and 4.
+Checking compatability of map equation 3 and 4.
+Checking map equation 5 of 5.
+Checking compatability of map equation 1 and 5.
+Checking compatability of map equation 2 and 5.
+Checking compatability of map equation 3 and 5.
+Checking compatability of map equation 4 and 5.
+Time to realize x,y over rationals: 221.360
+Pulling back points
+Map to elliptic curve has 5 defining polynomials.
+The codomain of the map is a rank 0 elliptic curve: [ 0, 1, 0, -71458, -7415787 ]
+The set of rational points of this elliptic curve is:
+Pulling back point (0 : 1 : 0).
+Beginning test of p = 13.
+Tested p = 13. There are 4 points, of which 2 are singular.
+Beginning test of p = 17.
+Tested p = 17. There are 8 points, of which 0 are singular.
+Lifting mod p point (1 : 6 : 16 : 4 : 7 : 0 : 2 : 8 : 6 : 12 : 9 : 12 : 14 : 9 : 3 : 15 : 3 : 15 : 11 : 12 : 12 : 12 : 12 : 4 : 9 : 7 : 16 : 15 : 8 : 2 : 0 : 1).
+We didn't find a rational point.
+Lifting mod p point (1 : 6 : 16 : 4 : 7 : 0 : 2 : 9 : 6 : 5 : 8 : 5 : 3 : 8 : 3 : 2 : 14 : 2 : 6 : 5 : 5 : 5 : 5 : 13 : 8 : 10 : 1 : 15 : 8 : 2 : 0 : 1).
+We didn't find a rational point.
+Lifting mod p point (8 : 16 : 0 : 8 : 13 : 10 : 5 : 8 : 16 : 1 : 5 : 12 : 1 : 3 : 12 : 0 : 13 : 5 : 6 : 8 : 8 : 15 : 8 : 4 : 13 : 13 : 3 : 1 : 11 : 13 : 1 : 1).
+We didn't find a rational point.
+Lifting mod p point (8 : 16 : 0 : 8 : 13 : 10 : 5 : 9 : 16 : 16 : 12 : 5 : 16 : 14 : 12 : 0 : 4 : 12 : 11 : 9 : 9 : 2 : 9 : 13 : 4 : 4 : 14 : 1 : 11 : 13 : 16 : 1).
+We didn't find a rational point.
+Lifting mod p point (11 : 1 : 1 : 6 : 16 : 5 : 10 : 4 : 13 : 4 : 4 : 0 : 0 : 0 : 1 : 0 : 4 : 13 : 4 : 4 : 4 : 13 : 13 : 9 : 0 : 4 : 13 : 8 : 10 : 7 : 0 : 1).
+We found a rational point (-1/3 : 1 : 1 : 1/3 : -1 : -2/3 : -4/3 : -5/3 : 5/3 : -5/3 : -5/3 : 0 : 0 : 0 : 1 : 0 : -5/3 : 5/3 : -5/3 : -5/3 : -5/3 : 5/3 : 5/3 : 10/3 : 0 : -5/3 : 5/3 : 7/3 : -4/3 : 4/3 : 0 : 1).
+Lifting mod p point (11 : 1 : 1 : 6 : 16 : 5 : 10 : 13 : 13 : 13 : 13 : 0 : 0 : 0 : 1 : 0 : 13 : 4 : 13 : 13 : 13 : 4 : 4 : 8 : 0 : 13 : 4 : 8 : 10 : 7 : 0 : 1).
+We found a rational point (-1/3 : 1 : 1 : 1/3 : -1 : -2/3 : -4/3 : 5/3 : 5/3 : 5/3 : 5/3 : 0 : 0 : 0 : 1 : 0 : 5/3 : -5/3 : 5/3 : 5/3 : 5/3 : -5/3 : -5/3 : -10/3 : 0 : 5/3 : -5/3 : 7/3 : -4/3 : 4/3 : 0 : 1).
+Lifting mod p point (12 : 16 : 14 : 15 : 14 : 2 : 6 : 2 : 0 : 8 : 13 : 0 : 16 : 8 : 3 : 11 : 13 : 6 : 10 : 9 : 15 : 1 : 0 : 4 : 4 : 15 : 10 : 2 : 2 : 9 : 9 : 1).
+We didn't find a rational point.
+Lifting mod p point (12 : 16 : 14 : 15 : 14 : 2 : 6 : 15 : 0 : 9 : 4 : 0 : 1 : 9 : 3 : 6 : 4 : 11 : 7 : 8 : 2 : 16 : 0 : 13 : 13 : 2 : 7 : 2 : 2 : 9 : 8 : 1).
+We didn't find a rational point.
+Mod 17 there are 8 points, all of which are non-singular.
+Mod 19 there are 2 points, all of which are non-singular.
+The reduction mod p map from X(Q) -> X(F_19) is bijective. We're done!
+There are 2 rational points on the given modular curve.
+They are [ (-1/3 : 1 : 1 : 1/3 : -1 : -2/3 : -4/3 : 5/3 : 5/3 : 5/3 : 5/3 : 0 : 0 : 0 : 1 : 0 : 5/3 : -5/3 : 5/3 : 5/3 : 5/3 : -5/3 : -5/3 : -10/3 : 0 : 5/3 : -5/3 : 7/3 : -4/3 : 4/3 : 0 : 1), (-1/3 : 1 : 1 : 1/3 : -1 : -2/3 : -4/3 : -5/3 : 5/3 : -5/3 : -5/3 : 0 : 0 : 0 : 1 : 0 : -5/3 : 5/3 : -5/3 : -5/3 : -5/3 : 5/3 : 5/3 : 10/3 : 0 : -5/3 : 5/3 : 7/3 : -4/3 : 4/3 : 0 : 1) ].
+Time to pull back points: 112.240
+Label: 70.420.32.c.1
+Number of rational cusps: 0
+Number of CM points: 2
+Multiset of CM j-invariants: {* 0^^2 *}
+Number of non-CM points: 0
+Multiset of non-CM j-invariants: {* *}
+Total time needed was 7181.030 sec.
+
+
+Total time: 7501.939 seconds, Total memory usage: 1541.84MB
